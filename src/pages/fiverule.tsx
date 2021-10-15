@@ -13,6 +13,9 @@ export default function Home() {
         <Link href="/smalltracker">
           <S.Button>START</S.Button>
         </Link>
+        <Link href="/">
+          <S.Lazy>I am Ready to Pomodoro!</S.Lazy>
+        </Link>
       </S.WrapperB>
     </>
   )
