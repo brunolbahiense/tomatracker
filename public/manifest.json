@@ -1,21 +1,21 @@
 {
-  "name": "Bluis Boilerplate",
-  "short_name": "Bluis Boilerplate",
+  "name": "Tomatracker",
+  "short_name": "Tomatracker",
   "icons": [
     {
-      "src": "/img/icon-192.png",
+      "src": "/img/tomato.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/img/icon-512.png",
+      "src": "/img/tomato.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "background_color": "#06092B",
-  "description": "Boilerlate utilizando Typescript, React, NextJS e Styled Components! 🚀",
+  "background_color": "#d95550",
+  "description": "Using the pomodoro method to improve your productivity 🚀",
   "display": "fullscreen",
   "start_url": "/",
-  "theme_color": "#06092B"
+  "theme_color": "#d95550"
 }

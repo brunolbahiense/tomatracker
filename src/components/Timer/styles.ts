@@ -1,49 +1,33 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.main`
-  background-color: #d95550;
-  color: #eee;
-  width: 100%;
-  height: 100%;
-  padding: 3rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  @media only screen and (max-width: 768px) {
-    border: none;
-    box-shadow: none;
-    width: 100%;
-    margin: unset;
-    height: 105%;
-  }
-`
-export const Frame = styled.main`
   background-color: #dd6662;
-  width: 60rem;
-  height: 40rem;
+  color: #eee;
+  width: 40rem;
+  height: 30rem;
   padding: 3rem;
-  text-align: center;
+  margin-top: 5rem;
   display: flex;
+  text-align: center;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  margin-top: 5rem;
+  @media only screen and (max-width: 768px) {
+    border: none;
+    box-shadow: none;
+  }
 `
 
 export const Title = styled.h1`
-  font-size: 4em;
+  font-size: 10rem;
 `
 
-export const Description = styled.h2`
+export const Message = styled.h2`
   font-size: 2rem;
   font-weight: 400;
 `
-
 export const Button = styled.button`
-  margin-top: 3rem;
   color: #dd6662;
   background-color: #eee;
   padding: 2rem;
@@ -57,5 +41,11 @@ export const Button = styled.button`
 
   :hover {
     background-color: #d9d9d9;
+    color: #e01673;
   }
+`
+
+export const Illustration = styled.img`
+  margin-top: 3rem;
+  width: min(30rem, 100%);
 `
