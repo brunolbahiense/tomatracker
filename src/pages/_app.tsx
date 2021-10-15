@@ -17,15 +17,8 @@ function App({ Component, pageProps }: AppProps) {
           content="Using the pomodoro method to improve your productivity 🚀"
         />
 
-        <title>Tomatracker</title>
-        <meta name="title" content="Tomatracker" />
-        <meta
-          name="description"
-          content="Improve your productivity using The Pomodoro Technique"
-        />
-
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://metatags.io/" />
+        <meta property="og:url" content="https://tomatracker.vercel.app/" />
         <meta property="og:title" content="Tomatracker" />
         <meta
           property="og:description"
@@ -37,7 +30,10 @@ function App({ Component, pageProps }: AppProps) {
         />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://metatags.io/" />
+        <meta
+          property="twitter:url"
+          content="https://tomatracker.vercel.app/"
+        />
         <meta property="twitter:title" content="Tomatracker" />
         <meta
           property="twitter:description"
