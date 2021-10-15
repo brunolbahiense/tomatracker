@@ -1,5 +1,6 @@
 import * as S from '../styles/styles'
 import Link from 'next/link'
+import PomodoroInfo from '../components/PomodoroInfo'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
           <S.Lazy>Fealling lazy?</S.Lazy>
         </Link>
       </S.Wrapper>
+      <PomodoroInfo />
     </>
   )
 }

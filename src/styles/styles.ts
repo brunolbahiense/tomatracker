@@ -98,6 +98,7 @@ export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 
   :hover {
     background-color: #d9d9d9;
