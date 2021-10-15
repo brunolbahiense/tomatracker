@@ -20,8 +20,41 @@ export const Wrapper = styled.main`
     overflow: hidden;
   }
 `
+export const WrapperB = styled.main`
+  background-color: #457ca3;
+  color: #eee;
+  width: 100%;
+  height: 100%;
+  padding: 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media only screen and (max-width: 768px) {
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    margin: unset;
+    height: 105%;
+    overflow: hidden;
+  }
+`
 export const Frame = styled.main`
   background-color: #dd6662;
+  width: 60rem;
+  height: 40rem;
+  padding: 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin-top: 5rem;
+`
+export const FrameB = styled.main`
+  background-color: #5889ac;
   width: 60rem;
   height: 40rem;
   padding: 3rem;
@@ -42,10 +75,20 @@ export const Description = styled.h2`
   font-size: 2rem;
   font-weight: 400;
 `
+export const Lazy = styled.h2`
+  font-size: 2rem;
+  font-weight: 400;
+  cursor: pointer;
+  margin-top: 2rem;
+
+  :hover {
+    color: #d6d6d6;
+  }
+`
 
 export const Button = styled.button`
   margin-top: 3rem;
-  color: #dd6662;
+  color: #4c9195;
   background-color: #eee;
   padding: 2rem;
   font-size: 3rem;
