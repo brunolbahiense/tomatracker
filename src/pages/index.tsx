@@ -1,4 +1,4 @@
-import * as S from '../components/Main/styles'
+import * as S from '../styles/styles'
 import Link from 'next/link'
 
 export default function Home() {
