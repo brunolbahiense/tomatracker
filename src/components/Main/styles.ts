@@ -17,6 +17,7 @@ export const Wrapper = styled.main`
     width: 100%;
     margin: unset;
     height: 105%;
+    overflow: hidden;
   }
 `
 export const Frame = styled.main`

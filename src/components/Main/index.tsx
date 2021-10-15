@@ -1,5 +1,6 @@
 import * as S from './styles'
 import Timer from 'components/Timer'
+import Link from 'next/link'
 
 const Main = () => (
   <S.Wrapper>
@@ -8,6 +9,9 @@ const Main = () => (
     <S.Frame>
       <Timer />
     </S.Frame>
+    <Link href="/">
+      <S.Button>Back</S.Button>
+    </Link>
   </S.Wrapper>
 )
 
