@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const WrapperW = styled.main`
-  background-color: #eee;
-  color: #d95550;
+  background-color: #${(props) => props.theme.white};
+  color: #${(props) => props.theme.red};
   width: auto;
   height: auto;
   padding: 3em;
@@ -43,7 +43,7 @@ export const List = styled.div`
   }
 `
 export const ListItems = styled.div`
-  color: #d95550;
+  color: ${(props) => props.theme.red};
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -53,7 +53,7 @@ export const ListItems = styled.div`
   }
 `
 export const Info = styled.p`
-  color: #6f6f6e;
+  color: ${(props) => props.theme.gray};
   font-size: 2rem;
   display: flex;
   flex-direction: column;

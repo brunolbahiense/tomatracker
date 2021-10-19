@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.main`
-  background-color: #dd6662;
-  color: #eee;
+  background-color: ${(props) => props.theme.lightred};
+  color: ${(props) => props.theme.white};
   width: 40rem;
   height: 30rem;
   padding: 3rem;
@@ -26,23 +26,6 @@ export const Title = styled.h1`
 export const Message = styled.h2`
   font-size: 2rem;
   font-weight: 400;
-`
-export const Button = styled.button`
-  color: #dd6662;
-  background-color: #eee;
-  padding: 2rem;
-  font-size: 3rem;
-  font-weight: 500;
-  border-radius: 15px;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  :hover {
-    background-color: #d9d9d9;
-    color: #e01673;
-  }
 `
 
 export const Illustration = styled.img`

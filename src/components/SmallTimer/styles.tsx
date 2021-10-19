@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.main`
-  background-color: #457ca3;
-  color: #eee;
+  background-color: ${(props) => props.theme.blue};
+  color: ${(props) => props.theme.white};
   width: 40rem;
   height: 30rem;
   padding: 3rem;
@@ -28,8 +28,8 @@ export const Message = styled.h2`
   font-weight: 400;
 `
 export const Button = styled.button`
-  color: #dd6662;
-  background-color: #eee;
+  color: ${(props) => props.theme.red};
+  background-color: ${(props) => props.theme.white};
   padding: 2rem;
   font-size: 3rem;
   font-weight: 500;
@@ -41,7 +41,7 @@ export const Button = styled.button`
   margin-top: 2rem;
 
   :hover {
-    background-color: #d9d9d9;
+    background-color: ${(props) => props.theme.grayL};
   }
 `
 
@@ -50,7 +50,7 @@ export const Illustration = styled.img`
   width: min(30rem, 100%);
 `
 export const FrameB = styled.main`
-  background-color: #5889ac;
+  background-color: ${(props) => props.theme.lightblue};
   text-align: center;
   display: flex;
   flex-direction: column;

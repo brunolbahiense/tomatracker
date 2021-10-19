@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.main`
   background-color: #d95550;
-  color: #eee;
+  color: ${(props) => props.theme.white};
   width: 100%;
   height: 100%;
   padding: 3rem;
@@ -21,8 +21,8 @@ export const Wrapper = styled.main`
   }
 `
 export const WrapperB = styled.main`
-  background-color: #457ca3;
-  color: #eee;
+  background-color: ${(props) => props.theme.blue};
+  color: ${(props) => props.theme.white};
   width: 100%;
   height: 100%;
   padding: 3rem;
@@ -41,7 +41,7 @@ export const WrapperB = styled.main`
   }
 `
 export const Frame = styled.main`
-  background-color: #dd6662;
+  background-color: ${(props) => props.theme.lightred};
   width: 60rem;
   height: 40rem;
   padding: 3rem;
@@ -54,7 +54,7 @@ export const Frame = styled.main`
   margin-top: 5rem;
 `
 export const FrameB = styled.main`
-  background-color: #5889ac;
+  background-color: ${(props) => props.theme.lightblue};
   width: 60rem;
   height: 40rem;
   padding: 3rem;
@@ -82,14 +82,14 @@ export const Lazy = styled.h2`
   margin-top: 2rem;
 
   :hover {
-    color: #d6d6d6;
+    color: ${(props) => props.theme.grayL};
   }
 `
 
 export const Button = styled.button`
   margin-top: 3rem;
-  color: #4c9195;
-  background-color: #eee;
+  color: ${(props) => props.theme.green};
+  background-color: ${(props) => props.theme.white};
   padding: 2rem;
   font-size: 3rem;
   font-weight: 500;
@@ -101,6 +101,6 @@ export const Button = styled.button`
   cursor: pointer;
 
   :hover {
-    background-color: #d9d9d9;
+    background-color: ${(props) => props.theme.grayL};
   }
 `
