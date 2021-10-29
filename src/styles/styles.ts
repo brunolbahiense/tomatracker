@@ -1,10 +1,50 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.main`
-  background-color: #d95550;
+  background-color: ${(props) => props.theme.red};
   color: ${(props) => props.theme.white};
   width: 100%;
   height: 100%;
+  padding: 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media only screen and (max-width: 768px) {
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    margin: unset;
+    height: 105%;
+    overflow: hidden;
+  }
+`
+export const RedWrapper = styled.main`
+  background-color: ${(props) => props.theme.newRed};
+  color: ${(props) => props.theme.white};
+  width: 100%;
+  height: 100%;
+  padding: 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media only screen and (max-width: 768px) {
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    margin: unset;
+    height: 105%;
+    overflow: hidden;
+  }
+`
+export const BlueWrapper = styled.main`
+  background-color: ${(props) => props.theme.newBlue};
+  color: ${(props) => props.theme.white};
+  width: 100%;
+  height: 80%;
   padding: 3rem;
   text-align: center;
   display: flex;

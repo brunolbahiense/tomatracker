@@ -1,23 +1,25 @@
+/* eslint-disable react/no-unescaped-entities */
 import * as S from '../styles/styles'
 import Link from 'next/link'
-import PomodoroInfo from '../components/PomodoroInfo'
-
+import Footer from 'components/Footer'
 export default function Home() {
   return (
     <>
-      <S.Wrapper>
+      <S.RedWrapper>
         <S.Title>Tomatracker</S.Title>
         <S.Description>
-          Using The Pomodoro Technique to improve your productivity
+          Improve your productivity and get thing done!
         </S.Description>
-        <Link href="/tracker">
-          <S.Button>START</S.Button>
+        <Link href="/tomatrackerTimer">
+          <S.Button>I'm Ready</S.Button>
         </Link>
+      </S.RedWrapper>
+      <S.BlueWrapper>
         <Link href="/fiverule">
-          <S.Lazy>Fealling lazy?</S.Lazy>
+          <S.Button>Save Me!</S.Button>
         </Link>
-      </S.Wrapper>
-      <PomodoroInfo />
+      </S.BlueWrapper>
+      <Footer />
     </>
   )
 }

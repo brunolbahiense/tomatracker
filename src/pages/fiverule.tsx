@@ -10,10 +10,10 @@ export default function Home() {
           If you are fealling that it is impossible to get things done, just
           schedule 1 small task to do in 5 minutes
         </S.Description>
-        <Link href="/smalltracker">
+        <Link href="/fiveRuleTimer">
           <S.Button>START</S.Button>
         </Link>
-        <Link href="/">
+        <Link href="/tomatracker">
           <S.Lazy>I am Ready to Pomodoro!</S.Lazy>
         </Link>
       </S.WrapperB>
