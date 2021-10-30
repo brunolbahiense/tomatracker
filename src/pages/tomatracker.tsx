@@ -1,12 +1,15 @@
 import * as S from '../styles/styles'
 import Link from 'next/link'
 import PomodoroInfo from '../components/PomodoroInfo'
+import Wrapper from 'components/Wrapper'
 
 export default function Home() {
   return (
     <>
-      <S.Wrapper>
-        <S.Title>Tomatracker</S.Title>
+      <Wrapper>
+        <Link href="/">
+          <S.Title>Tomatracker</S.Title>
+        </Link>
         <S.Description>
           Using The Pomodoro Technique to improve your productivity
         </S.Description>
@@ -16,7 +19,7 @@ export default function Home() {
         <Link href="/fiverule">
           <S.Lazy>Fealling lazy?</S.Lazy>
         </Link>
-      </S.Wrapper>
+      </Wrapper>
       <PomodoroInfo />
     </>
   )

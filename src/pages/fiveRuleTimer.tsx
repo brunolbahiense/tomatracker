@@ -1,10 +1,11 @@
 import * as S from '../styles/styles'
 import SmallTimer from 'components/SmallTimer'
 import Link from 'next/link'
+import Wrapper from 'components/Wrapper'
 
 export default function Tracker() {
   return (
-    <S.WrapperB>
+    <Wrapper background="blue">
       <S.Title>The 5 minutes rule</S.Title>
       <S.Description>Focus at one task and get things done!</S.Description>
       <S.FrameB>
@@ -13,6 +14,6 @@ export default function Tracker() {
       <Link href="/fiverule">
         <S.Button>Reset</S.Button>
       </Link>
-    </S.WrapperB>
+    </Wrapper>
   )
 }
