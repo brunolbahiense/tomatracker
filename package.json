@@ -16,6 +16,8 @@
     ]
   },
   "dependencies": {
+    "@babel/core": "^7.0.0",
+    "@types/react-app": "^1.0.6",
     "next": "10.0.9",
     "next-pwa": "^5.0.6",
     "react": "17.0.1",

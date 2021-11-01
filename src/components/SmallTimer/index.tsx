@@ -25,7 +25,7 @@ const SmallTimer = () => {
 
   const TimerMinutes = minutes < 10 ? `0${minutes}` : minutes
   const TimerSeconds = seconds < 10 ? `0${seconds}` : seconds
-  const Time = `${TimerMinutes}:${TimerSeconds}`
+  const Display = `${TimerMinutes}:${TimerSeconds}`
 
   return (
     <>
@@ -39,7 +39,7 @@ const SmallTimer = () => {
           </S.FrameB>
         )}
       </S.Message>
-      <S.Title>{Time}</S.Title>
+      <S.Title>{Display}</S.Title>
     </>
   )
 }
