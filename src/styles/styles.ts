@@ -73,7 +73,7 @@ export const Button = styled.button`
 export const Illustration = styled.img`
   height: 20em;
   display: flex;
-  cursor: pointer;
+  justify-content: flex-end;
 `
 export const Container = styled.div`
   display: flex;
@@ -99,7 +99,8 @@ export const TitleDiv = styled.div`
   display: flex;
   align-items: flex-start;
   width: 100%;
-  padding-left: 24em;
+  padding-left: 15em;
+  font-size: 1.5em;
   @media only screen and (max-width: 768px) {
     display: flex;
     flex-direction: column;
