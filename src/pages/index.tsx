@@ -24,7 +24,7 @@ export default function Home() {
         </S.TitleDiv>
         <S.Container>
           <S.Message>If you're fealling lazy today, no worries, :)</S.Message>
-          <S.Illustration src="/img/tomato.png" />
+          <S.Illustration src="/img/FiveIcon.png" />
         </S.Container>
         <Link href="/fiverule">
           <S.Button>Save Me!</S.Button>

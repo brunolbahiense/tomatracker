@@ -7,7 +7,7 @@ export const Footer = styled.footer`
   color: ${(props) => props.theme.black};
   width: auto;
   height: auto;
-  padding: 1.5em;
+  padding: 1em;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -22,4 +22,5 @@ export const Icons = styled.img`
   flex-direction: row;
   height: 1.5em;
   margin-left: 1em;
+  cursor: pointer;
 `
