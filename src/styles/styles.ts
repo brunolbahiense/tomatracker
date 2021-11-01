@@ -1,45 +1,5 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.main`
-  background-color: #d95550;
-  color: ${(props) => props.theme.white};
-  width: 100%;
-  height: 100%;
-  padding: 3rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  @media only screen and (max-width: 768px) {
-    border: none;
-    box-shadow: none;
-    width: 100%;
-    margin: unset;
-    height: 105%;
-    overflow: hidden;
-  }
-`
-export const WrapperB = styled.main`
-  background-color: ${(props) => props.theme.blue};
-  color: ${(props) => props.theme.white};
-  width: 100%;
-  height: 100%;
-  padding: 3rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  @media only screen and (max-width: 768px) {
-    border: none;
-    box-shadow: none;
-    width: 100%;
-    margin: unset;
-    height: 105%;
-    overflow: hidden;
-  }
-`
 export const Frame = styled.main`
   background-color: ${(props) => props.theme.lightred};
   width: 60rem;
@@ -75,6 +35,11 @@ export const Description = styled.h2`
   font-size: 2rem;
   font-weight: 400;
 `
+export const Message = styled.h2`
+  font-size: 2rem;
+  font-weight: 600;
+  margin-right: 8em;
+`
 export const Lazy = styled.h2`
   font-size: 2rem;
   font-weight: 400;
@@ -102,5 +67,49 @@ export const Button = styled.button`
 
   :hover {
     background-color: ${(props) => props.theme.grayL};
+  }
+`
+
+export const Illustration = styled.img`
+  height: 20em;
+  display: flex;
+  justify-content: flex-end;
+`
+export const Container = styled.div`
+  display: flex;
+  width: 80%;
+  flex-direction: row;
+  align-items: center;
+  padding: 3em 8em;
+  justify-content: center;
+
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    box-shadow: none;
+    margin: unset;
+    overflow: hidden;
+    justify-content: center;
+  }
+`
+
+export const TitleDiv = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  padding-left: 15em;
+  font-size: 1.5em;
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    box-shadow: none;
+    margin: unset;
+    overflow: hidden;
+    padding: 0em;
+    justify-content: center;
   }
 `

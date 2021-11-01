@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const WrapperW = styled.main`
-  background-color: #${(props) => props.theme.white};
-  color: #${(props) => props.theme.red};
+  background-color: ${(props) => props.theme.white};
+  color: ${(props) => props.theme.red};
   width: auto;
   height: auto;
   padding: 3em;
