@@ -14,7 +14,7 @@ export default function Home() {
           <S.Message>Improve your productivity and get thing done!</S.Message>
           <S.Illustration src="/img/tomato.png" />
         </S.Container>
-        <Link href="/tomatracker">
+        <Link href="/Tomatracker">
           <S.Button>I'm Ready</S.Button>
         </Link>
       </Wrapper>
@@ -26,7 +26,7 @@ export default function Home() {
           <S.Message>If you're fealling lazy today, no worries, :)</S.Message>
           <S.Illustration src="/img/FiveIcon.png" />
         </S.Container>
-        <Link href="/fiverule">
+        <Link href="/FiveRule">
           <S.Button>Save Me!</S.Button>
         </Link>
       </Wrapper>
