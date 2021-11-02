@@ -29,6 +29,10 @@ export const FrameB = styled.main`
 
 export const Title = styled.h1`
   font-size: 4em;
+  @media only screen and (max-width: 768px) {
+    margin-right: 0em;
+    font-size: 3em;
+  }
 `
 
 export const Description = styled.h2`
@@ -39,6 +43,10 @@ export const Message = styled.h2`
   font-size: 2rem;
   font-weight: 600;
   margin-right: 8em;
+  @media only screen and (max-width: 768px) {
+    margin-right: 0em;
+    font-weight: 400;
+  }
 `
 export const Lazy = styled.h2`
   font-size: 2rem;
@@ -74,6 +82,9 @@ export const Illustration = styled.img`
   height: 20em;
   display: flex;
   justify-content: flex-end;
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `
 export const Container = styled.div`
   display: flex;
@@ -87,10 +98,10 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     border: none;
-    box-shadow: none;
     margin: unset;
     overflow: hidden;
-    justify-content: center;
+    padding: none;
+    width: auto;
   }
 `
 

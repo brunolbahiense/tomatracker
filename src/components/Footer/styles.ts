@@ -12,6 +12,16 @@ export const Footer = styled.footer`
   align-items: center;
   justify-content: center;
   font-size: 3em;
+  @media only screen and (max-width: 768px) {
+    align-items: center;
+    border: none;
+    box-shadow: none;
+    margin: unset;
+    overflow: hidden;
+    justify-content: center;
+    padding: 1em;
+    font-size: 2em;
+  }
 `
 export const Title = styled.p`
   font-size: 1.5em;
