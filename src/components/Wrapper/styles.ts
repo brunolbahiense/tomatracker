@@ -15,10 +15,10 @@ export const Wrapper = styled.main<WrapperProps>`
   @media only screen and (max-width: 768px) {
     border: none;
     box-shadow: none;
-    width: 100%;
-    margin: unset;
-    height: 105%;
     overflow: hidden;
+    margin: unset;
+    width: 100%;
+    height: 105%;
   }
 
   ${(props) =>
