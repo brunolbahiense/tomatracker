@@ -29,6 +29,8 @@ export const FrameB = styled.main`
 
 export const Title = styled.h1`
   font-size: 4em;
+  margin-bottom: 0.5em;
+  cursor: pointer;
   @media only screen and (max-width: 768px) {
     margin-right: 0em;
     font-size: 3em;
