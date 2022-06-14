@@ -18,7 +18,7 @@ export default function Home() {
         </S.Description>
         {showCounter && (
           <S.Frame>
-            <Timer time={1} breakTime={5} />
+            <Timer time={25} breakTime={5} />
           </S.Frame>
         )}
         <S.Button onClick={() => setShowCounter(!showCounter)}>
