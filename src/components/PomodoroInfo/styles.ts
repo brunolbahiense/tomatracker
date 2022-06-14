@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const WrapperW = styled.main`
-  background-color: ${(props) => props.theme.white};
+  background-color: ${(props) => props.theme.grayDark};
   color: ${(props) => props.theme.red};
   width: auto;
   height: auto;
@@ -53,7 +53,7 @@ export const ListItems = styled.div`
   }
 `
 export const Info = styled.p`
-  color: ${(props) => props.theme.gray};
+  color: ${(props) => props.theme.white};
   font-size: 2rem;
   display: flex;
   flex-direction: column;

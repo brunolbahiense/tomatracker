@@ -3,19 +3,21 @@
   "short_name": "Tomatracker",
   "icons": [
     {
+      "background_color": "#D63731",
       "src": "/img/tomato.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
+      "background_color": "#D63731",
       "src": "/img/tomato.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "background_color": "#d95550",
+  "background_color": "#D63731",
   "description": "Using the pomodoro method to improve your productivity 🚀",
   "display": "fullscreen",
   "start_url": "/",
-  "theme_color": "#d95550"
+  "theme_color": "#D63731"
 }
