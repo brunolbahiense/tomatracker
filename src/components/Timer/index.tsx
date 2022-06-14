@@ -6,12 +6,17 @@ interface TimerProps {
   breakTime: number
 }
 
-const Timer = (props: TimerProps) => {
-  const [minutes, setMinutes] = useState(props.time)
+const Timer = ({ time, breakTime }: TimerProps) => {
+  const [minutes, setMinutes] = useState(time)
   const [seconds, setSeconds] = useState(0)
   const [displayMensage, setDisplayMensage] = useState(false)
 
+  const TimerMinutes = minutes < 10 ? `0${minutes}` : minutes
+  const TimerSeconds = seconds < 10 ? `0${seconds}` : seconds
+  const Display = `${TimerMinutes}:${TimerSeconds}`
+
   useEffect(() => {
+    document.title = Display
     const interval = setInterval(() => {
       clearInterval(interval)
       if (seconds === 0) {
@@ -19,7 +24,7 @@ const Timer = (props: TimerProps) => {
           setSeconds(59)
           setMinutes(minutes - 1)
         } else {
-          const minutes = displayMensage ? 24 : props.breakTime
+          const minutes = displayMensage ? 24 : breakTime
           const seconds = 0
 
           setSeconds(seconds)
@@ -30,11 +35,7 @@ const Timer = (props: TimerProps) => {
         setSeconds(seconds - 1)
       }
     }, 1000)
-  }, [displayMensage, minutes, props.breakTime, seconds])
-
-  const TimerMinutes = minutes < 10 ? `0${minutes}` : minutes
-  const TimerSeconds = seconds < 10 ? `0${seconds}` : seconds
-  const Display = `${TimerMinutes}:${TimerSeconds}`
+  }, [displayMensage, minutes, breakTime, seconds, Display])
 
   return (
     <>

@@ -3,8 +3,8 @@ import { WrapperProps } from '.'
 
 export const Wrapper = styled.main<WrapperProps>`
   color: ${(props) => props.theme.white};
-  width: 100%;
-  height: 100%;
+  max-width: 100vw;
+  height: 95vh;
   padding: 3rem;
   text-align: center;
   display: flex;
@@ -13,6 +13,7 @@ export const Wrapper = styled.main<WrapperProps>`
   justify-content: center;
 
   @media only screen and (max-width: 768px) {
+    height: 100vh;
     border: none;
     box-shadow: none;
     overflow: hidden;

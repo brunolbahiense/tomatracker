@@ -2,8 +2,11 @@ import * as S from '../../styles/styles'
 import Link from 'next/link'
 import PomodoroInfo from '../../components/PomodoroInfo'
 import Wrapper from 'components/Wrapper'
+import Timer from 'components/Timer'
+import { useState } from 'react'
 
 export default function Home() {
+  const [showCounter, setShowCounter] = useState(false)
   return (
     <>
       <Wrapper>
@@ -13,12 +16,14 @@ export default function Home() {
         <S.Description>
           Using The Pomodoro Technique to improve your productivity
         </S.Description>
-        <Link href="/Tomatracker/Timer">
-          <S.Button>START</S.Button>
-        </Link>
-        <Link href="/FiveRule">
-          <S.Lazy>Fealling lazy?</S.Lazy>
-        </Link>
+        {showCounter && (
+          <S.Frame>
+            <Timer time={1} breakTime={5} />
+          </S.Frame>
+        )}
+        <S.Button onClick={() => setShowCounter(!showCounter)}>
+          {!showCounter ? 'START' : 'STOP'}
+        </S.Button>
       </Wrapper>
       <PomodoroInfo />
     </>

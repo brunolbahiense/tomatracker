@@ -18,18 +18,6 @@ export default function Home() {
           <S.Button>I'm Ready</S.Button>
         </Link>
       </Wrapper>
-      <Wrapper background="blue">
-        <S.TitleDiv>
-          <S.Title>The 5 Minutes Rule</S.Title>
-        </S.TitleDiv>
-        <S.Container>
-          <S.Message>If you're fealling lazy today, no worries, :)</S.Message>
-          <S.Illustration src="/img/FiveIcon.png" />
-        </S.Container>
-        <Link href="/FiveRule">
-          <S.Button>Save Me!</S.Button>
-        </Link>
-      </Wrapper>
       <Footer />
     </>
   )
