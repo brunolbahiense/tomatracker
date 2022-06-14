@@ -1,20 +1,7 @@
 import styled from 'styled-components'
 
 export const Frame = styled.main`
-  background-color: ${(props) => props.theme.lightred};
-  width: 60rem;
-  height: 40rem;
-  padding: 3rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  margin-top: 5rem;
-`
-export const FrameB = styled.main`
-  background-color: ${(props) => props.theme.lightblue};
+  background-color: ${(props) => props.theme.lightRed};
   width: 60rem;
   height: 40rem;
   padding: 3rem;
@@ -50,20 +37,10 @@ export const Message = styled.h2`
     font-weight: 400;
   }
 `
-export const Lazy = styled.h2`
-  font-size: 2rem;
-  font-weight: 400;
-  cursor: pointer;
-  margin-top: 2rem;
-
-  :hover {
-    color: ${(props) => props.theme.grayL};
-  }
-`
 
 export const Button = styled.button`
   margin-top: 3rem;
-  color: ${(props) => props.theme.green};
+  color: ${(props) => props.theme.gray};
   background-color: ${(props) => props.theme.white};
   padding: 2rem;
   font-size: 3rem;
@@ -76,7 +53,8 @@ export const Button = styled.button`
   cursor: pointer;
 
   :hover {
-    background-color: ${(props) => props.theme.grayL};
+    transform: scale(1.1);
+    animation: smooth;
   }
 `
 
