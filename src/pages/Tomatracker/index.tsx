@@ -7,6 +7,7 @@ import { useState } from 'react'
 
 export default function Home() {
   const [showCounter, setShowCounter] = useState(false)
+  const [breakTime, setBreakTime] =useState(5)
   return (
     <>
       <Wrapper>
@@ -14,16 +15,11 @@ export default function Home() {
           <S.Title>Tomatracker</S.Title>
         </Link>
         <S.Description>
-          Using The Pomodoro Technique to improve your productivity
+          Hora de focar!
         </S.Description>
-        {showCounter && (
-          <S.Frame>
-            <Timer time={25} breakTime={5} />
-          </S.Frame>
-        )}
-        <S.Button onClick={() => setShowCounter(!showCounter)}>
-          {!showCounter ? 'START' : 'STOP'}
-        </S.Button>
+        <S.Frame>
+          <Timer time={25} breakTime={breakTime} />
+        </S.Frame>
       </Wrapper>
       <PomodoroInfo />
     </>

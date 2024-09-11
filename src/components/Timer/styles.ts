@@ -32,3 +32,17 @@ export const Illustration = styled.img`
   margin-top: 3rem;
   width: min(30rem, 100%);
 `
+
+export const Actions = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+  gap: 3em;
+  margin-top: 5em;
+
+  img{
+    height: 4%.5;
+    cursor: pointer;
+  }
+`
