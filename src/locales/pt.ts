@@ -25,6 +25,16 @@ const pt: Translations = {
       increaseBreak: 'Aumentar tempo de pausa',
       muteLabel: 'Alternar som',
     },
+    motivationalPhrases: [
+      'Um pomodoro de cada vez.',
+      'O foco começa aqui.',
+      'Foco é um superpoder.',
+      'Faça esses 25 minutos valerem.',
+      'Pequenos passos, grandes resultados.',
+      'Permaneça na zona.',
+      'Progresso supera perfeição.',
+      'Seu melhor trabalho acontece agora.',
+    ],
   },
   notifications: {
     backToWork: 'De volta ao foco!',
