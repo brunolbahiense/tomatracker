@@ -10,18 +10,28 @@ export const Wrapper = styled.div`
   justify-content: center;
 `
 
+export const PhaseLabel = styled.div`
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: ${(props) => props.theme.red};
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+`
+
 export const Title = styled.h1`
   font-size: 10rem;
+  font-weight: 700;
+  letter-spacing: -0.4rem;
+  line-height: 1;
 `
 
-export const Message = styled.h2`
-  font-size: 2rem;
-  font-weight: 400;
-`
-
-export const Illustration = styled.img`
-  margin-top: 3rem;
-  width: min(30rem, 100%);
+export const Divider = styled.div`
+  width: 3rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, ${(props) => props.theme.red}, transparent);
+  border-radius: 2px;
+  margin-bottom: 2rem;
 `
 
 export const Controls = styled.div`
@@ -30,19 +40,60 @@ export const Controls = styled.div`
   margin-top: 2rem;
 `
 
-export const ControlButton = styled.button`
-  color: ${(props) => props.theme.gray};
-  background-color: ${(props) => props.theme.white};
-  padding: 1rem 2rem;
-  font-size: 2rem;
-  font-weight: 500;
-  border-radius: 10px;
+interface ControlButtonProps {
+  $primary?: boolean
+}
+
+export const ControlButton = styled.button<ControlButtonProps>`
+  padding: 0.9rem 2.5rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15rem;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
+  text-transform: uppercase;
 
-  :hover {
-    transform: scale(1.1);
+  ${(props) =>
+    props.$primary
+      ? `
+    background: linear-gradient(135deg, ${props.theme.red}, ${props.theme.lightRed});
+    color: ${props.theme.white};
+    box-shadow: 0 4px 18px rgba(214, 55, 49, 0.45);
+  `
+      : `
+    background: rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  `}
+
+  &:hover {
+    transform: scale(1.05);
   }
+`
+
+export const TimeInfo = styled.p`
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 1.2rem;
+  letter-spacing: 0.05rem;
+
+  span {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+  }
+`
+
+export const MotivationalText = styled.p`
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.3);
+  font-style: italic;
+  text-align: center;
+  line-height: 1.5;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 1.2rem;
+  margin-top: 1.2rem;
+  width: 100%;
 `
 
 export const ConfigRow = styled.div`
