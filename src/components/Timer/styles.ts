@@ -164,7 +164,9 @@ export const SettingsButton = styled.button`
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 12px rgba(214, 55, 49, 0.12);
-  transition: transform 0.4s ease, background 0.2s ease;
+  transition:
+    transform 0.4s ease,
+    background 0.2s ease;
 
   &:hover {
     transform: rotate(90deg) scale(1.1);

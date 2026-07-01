@@ -27,7 +27,9 @@ export const Frame = styled.main`
     0 0 80px rgba(214, 55, 49, 0.07);
   backdrop-filter: blur(8px);
   margin-top: 3rem;
-  animation: ${fadeUp} 0.6s ease-out 0.15s both, ${float} 4s ease-in-out 0.75s infinite;
+  animation:
+    ${fadeUp} 0.6s ease-out 0.15s both,
+    ${float} 4s ease-in-out 0.75s infinite;
 
   @media only screen and (max-width: 768px) {
     width: 90%;
