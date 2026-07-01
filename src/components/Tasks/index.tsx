@@ -27,6 +27,7 @@ export default function Tasks({
   const completedTasks = taskList.filter((t) => t.done)
 
   const handleAdd = () => {
+    if (!inputValue.trim()) return
     addTask(inputValue)
     setInputValue('')
     inputRef.current?.focus()
@@ -52,7 +53,9 @@ export default function Tasks({
     const a = document.createElement('a')
     a.href = url
     a.download = `tomatracker-${today}.txt`
+    document.body.appendChild(a)
     a.click()
+    document.body.removeChild(a)
     URL.revokeObjectURL(url)
   }
 
@@ -76,7 +79,7 @@ export default function Tasks({
               onKeyDown={handleKeyDown}
               placeholder={locale.tasks.inputPlaceholder}
             />
-            <S.AddButton onClick={handleAdd} aria-label="Add task">
+            <S.AddButton onClick={handleAdd} aria-label={locale.tasks.addLabel}>
               +
             </S.AddButton>
           </S.InputRow>
@@ -104,7 +107,7 @@ export default function Tasks({
                     ✓
                   </S.Checkbox>
                   <S.TaskText $done={true}>{task.text}</S.TaskText>
-                  <S.Timestamp>{task.completedAt}</S.Timestamp>
+                  <S.Timestamp>{task.completedAt ?? ''}</S.Timestamp>
                   <S.DeleteButton
                     onClick={() => deleteTask(task.id)}
                     aria-label={locale.tasks.deleteLabel}
