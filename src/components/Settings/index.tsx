@@ -39,7 +39,8 @@ export default function Settings({
       if (
         panelRef.current?.contains(e.target as Node) ||
         buttonRef.current?.contains(e.target as Node)
-      ) return
+      )
+        return
       setShowSettings(false)
     }
     document.addEventListener('pointerdown', handlePointerDown)

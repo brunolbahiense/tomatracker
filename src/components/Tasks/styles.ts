@@ -125,7 +125,8 @@ export const Checkbox = styled.div<DoneProps>`
   justify-content: center;
   font-size: 1rem;
   background: ${(props) => (props.$done ? props.theme.accentSoft : 'transparent')};
-  border: 1.5px solid ${(props) => (props.$done ? props.theme.red : props.theme.borderMid)};
+  border: 1.5px solid
+    ${(props) => (props.$done ? props.theme.red : props.theme.borderMid)};
   color: ${(props) => props.theme.red};
   transition: all 0.15s;
 `

@@ -31,7 +31,8 @@ export default function Tasks({
       if (
         drawerRef.current?.contains(e.target as Node) ||
         buttonRef.current?.contains(e.target as Node)
-      ) return
+      )
+        return
       setOpen(false)
     }
     document.addEventListener('pointerdown', handlePointerDown)

@@ -120,7 +120,7 @@ export const Actions = styled.div`
   gap: 3em;
   margin-top: 5em;
 
-  img{
+  img {
     height: 4%.5;
     cursor: pointer;
   }
