@@ -26,8 +26,14 @@ export const Wrapper = styled.main<WrapperProps>`
     props.background === 'red' &&
     `background: ${props.theme.red};
   `};
+
   ${(props) =>
     props.background === 'blue' &&
     `background: ${props.theme.blue};
+  `};
+
+  ${(props) =>
+    props.background === 'dark' &&
+    `background: radial-gradient(ellipse at 50% 0%, ${props.theme.darkBgTop} 0%, ${props.theme.darkBg} 100%);
   `};
 `
