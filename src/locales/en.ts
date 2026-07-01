@@ -3,9 +3,6 @@ const en = {
     tagline: 'Improve your productivity and get things done!',
     cta: "I'm Ready"
   },
-  timerPage: {
-    description: 'Using The Pomodoro Technique to improve your productivity'
-  },
   timer: {
     play: 'PLAY',
     pause: 'PAUSE',

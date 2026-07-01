@@ -5,9 +5,6 @@ const pt: Translations = {
     tagline: 'Melhore sua produtividade e faça as coisas acontecerem!',
     cta: 'Estou Pronto'
   },
-  timerPage: {
-    description: 'Usando a Técnica Pomodoro para melhorar sua produtividade'
-  },
   timer: {
     play: 'INICIAR',
     pause: 'PAUSAR',

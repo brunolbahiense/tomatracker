@@ -98,6 +98,15 @@ const Timer = () => {
               $isMuted={isMuted}
               onClick={toggleMute}
               aria-label={locale.timer.aria.muteLabel}
+              role="switch"
+              aria-checked={isMuted}
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  toggleMute()
+                }
+              }}
             >
               <S.MuteThumb $isMuted={isMuted} />
             </S.MuteSwitch>

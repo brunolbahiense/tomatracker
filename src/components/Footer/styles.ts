@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Footer = styled.footer`
-  background: #0a0303;
+  background: ${(props) => props.theme.darkBgFooter};
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding: 2rem 3rem;
   display: flex;

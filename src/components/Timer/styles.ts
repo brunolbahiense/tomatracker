@@ -19,7 +19,7 @@ export const PhaseLabel = styled.div`
   margin-bottom: 0.8rem;
 `
 
-export const Title = styled.h1`
+export const Title = styled.div`
   font-size: 10rem;
   font-weight: 700;
   letter-spacing: -0.4rem;
