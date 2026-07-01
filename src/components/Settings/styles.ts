@@ -7,10 +7,10 @@ export const Backdrop = styled.div`
 `
 
 export const SettingsButton = styled.button`
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 200;
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
   width: 3.6rem;
   height: 3.6rem;
   border-radius: 50%;
@@ -35,15 +35,15 @@ export const SettingsButton = styled.button`
 `
 
 export const SettingsPanel = styled.div`
-  position: absolute;
+  position: fixed;
   top: 5rem;
-  right: 1rem;
+  right: 1.5rem;
   background-color: ${(props) => props.theme.panelBg};
   color: ${(props) => props.theme.grayDark};
   border-radius: 10px;
   padding: 1.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-  z-index: 200;
+  z-index: 1000;
   min-width: 18rem;
   display: flex;
   flex-direction: column;
