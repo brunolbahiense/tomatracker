@@ -5,28 +5,21 @@ import Link from 'next/link'
 import PomodoroInfo from 'components/PomodoroInfo'
 import Wrapper from 'components/Wrapper'
 import Timer from 'components/Timer'
-import { useState } from 'react'
+import useLocale from 'hooks/useLocale'
 
 export default function TomatrackerPage() {
-  const [showCounter, setShowCounter] = useState(false)
+  const locale = useLocale()
 
   return (
     <>
-      <Wrapper>
+      <Wrapper background="dark">
         <Link href="/">
           <S.Title>Tomatracker</S.Title>
         </Link>
-        <S.Description>
-          Using The Pomodoro Technique to improve your productivity
-        </S.Description>
-        {showCounter && (
-          <S.Frame>
-            <Timer time={25} breakTime={5} />
-          </S.Frame>
-        )}
-        <S.Button onClick={() => setShowCounter(!showCounter)}>
-          {!showCounter ? 'START' : 'STOP'}
-        </S.Button>
+        <S.Description>{locale.timerPage.description}</S.Description>
+        <S.Frame>
+          <Timer />
+        </S.Frame>
       </Wrapper>
       <PomodoroInfo />
     </>

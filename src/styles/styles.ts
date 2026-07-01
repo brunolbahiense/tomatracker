@@ -1,17 +1,27 @@
 import styled from 'styled-components'
 
 export const Frame = styled.main`
-  background-color: ${(props) => props.theme.lightRed};
-  width: 60rem;
-  height: 40rem;
-  padding: 3rem;
-  text-align: center;
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  padding: 3rem 3.5rem;
+  width: 42rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
-  margin-top: 5rem;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 0 80px rgba(214, 55, 49, 0.07);
+  backdrop-filter: blur(8px);
+  margin-top: 3rem;
+
+  @media only screen and (max-width: 768px) {
+    width: 90%;
+    padding: 2.5rem 2rem;
+  }
 `
 
 export const Title = styled.h1`
