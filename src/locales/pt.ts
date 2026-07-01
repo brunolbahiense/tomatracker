@@ -44,39 +44,32 @@ const pt: Translations = {
   },
   pomodoroInfo: {
     title: 'A Técnica Pomodoro',
-    subtitle: 'Como dominá-la!',
-    steps: [
+    subtitle: 'Simples, comprovada, eficaz.',
+    pillars: [
       {
-        title: '1. Descubra quanto esforço uma atividade exige',
+        icon: '🍅',
+        label: '25 min',
+        title: 'Foco total',
         description:
-          'Já se perguntou para onde vai todo o seu tempo? Não se pergunte mais: está tudo na página. Sua lista de tarefas Pomodoro® é uma visão geral visual do tempo que você passou em diversas tarefas.',
+          'Trabalhe em uma única tarefa sem interrupções durante um Pomodoro.',
       },
       {
-        title: '2. Reduza as interrupções',
-        description:
-          'Geralmente, você pode esperar 25 minutos antes de retornar a ligação de um amigo ou responder um e-mail. Você aprenderá como lidar com as interrupções inevitáveis mantendo o foco na tarefa em questão.',
+        icon: '☕',
+        label: '5 min',
+        title: 'Pausa curta',
+        description: 'Levante, respire, descanse a mente antes do próximo ciclo.',
       },
       {
-        title: '3. Estime o esforço para as atividades',
-        description:
-          'Embora os contornos do Pomodoro® sejam fixos, o que você faz dentro deles pode ser ajustado para maximizar a eficiência. Uma maneira de tornar um Pomodoro® mais eficaz é usar os primeiros minutos para revisar o que você fez antes. Outros métodos são discutidos no livro.',
-      },
-      {
-        title: '4. Torne o Pomodoro mais eficaz',
-        description:
-          'Embora os contornos do Pomodoro sejam fixos, o que você faz dentro deles pode ser ajustado para maximizar a eficiência. Uma maneira de tornar um Pomodoro® mais eficaz é usar os primeiros minutos para revisar o que você fez antes. Outros métodos são discutidos no livro.',
-      },
-      {
-        title: '5. Estabeleça um cronograma',
-        description:
-          'Um cronograma define um limite, motivando você a completar uma tarefa dentro de um período de tempo definido. Ele também delimita seu tempo de trabalho do seu tempo livre. Criar um cronograma claro permitirá que você aproveite seu tempo livre sem se preocupar que poderia estar fazendo mais trabalho.',
-      },
-      {
-        title: '6. Defina seus próprios objetivos',
-        description:
-          'Um cronograma define um limite, motivando você a completar uma tarefa dentro de um período de tempo definido. Ele também delimita seu tempo de trabalho do seu tempo livre. Criar um cronograma claro permitirá que você aproveite seu tempo livre sem se preocupar que poderia estar fazendo mais trabalho.',
+        icon: '🔁',
+        label: '× 4',
+        title: 'Repita',
+        description: 'A cada 4 Pomodoros, faça uma pausa longa de 15–30 minutos.',
       },
     ],
+  },
+  footer: {
+    madeBy: 'Feito por',
+    name: 'Bruno',
   },
 }
 

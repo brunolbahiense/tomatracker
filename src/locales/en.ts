@@ -42,39 +42,31 @@ const en = {
   },
   pomodoroInfo: {
     title: 'The Pomodoro Technique',
-    subtitle: 'How to master it!',
-    steps: [
+    subtitle: 'Simple, proven, effective.',
+    pillars: [
       {
-        title: '1. Find out how much effort an activity requires',
-        description:
-          "Ever wonder where all your time goes? Wonder no more: it's all on the page. Your Pomodoro® To-Do sheet is a visual overview of the time you've spent on various tasks.",
+        icon: '🍅',
+        label: '25 min',
+        title: 'Full Focus',
+        description: 'Work on one task without interruption for one Pomodoro.',
       },
       {
-        title: '2. Cut down on interruptions',
-        description:
-          "Usually, you can afford to take 25 minutes before calling back a friend or replying to an email. You'll learn how to handle the inevitable interruption while staying focused on the task at hand.",
+        icon: '☕',
+        label: '5 min',
+        title: 'Short Break',
+        description: 'Stand up, breathe, rest your mind before the next cycle.',
       },
       {
-        title: '3. Estimate the effort for activities',
-        description:
-          "While the contours of the Pomodoro® are set, what you do within them can be adjusted to maximize efficiency. One way to make a Pomodoro® more effective is to use the first few minutes to review what you've done before. Other methods are discussed in the book.",
-      },
-      {
-        title: '4. Make the Pomodoro more effective',
-        description:
-          "While the contours of the Pomodoro are set, what you do within them can be adjusted to maximize efficiency. One way to make a Pomodoro® more effective is to use the first few minutes to review what you've done before. Other methods are discussed in the book.",
-      },
-      {
-        title: '5. Set up a timetable',
-        description:
-          'A timetable sets a limit, motivating you to complete a task within a set period of time. It also delineates your work time from your free time. Creating a clear timetable will allow you to enjoy your time off without worrying that you could be doing more work.',
-      },
-      {
-        title: '6. Define your own objectives',
-        description:
-          'A timetable sets a limit, motivating you to complete a task within a set period of time. It also delineates your work time from your free time. Creating a clear timetable will allow you to enjoy your time off without worrying that you could be doing more work.',
+        icon: '🔁',
+        label: '× 4',
+        title: 'Repeat',
+        description: 'After 4 Pomodoros, take a longer 15–30 min break.',
       },
     ],
+  },
+  footer: {
+    madeBy: 'Made by',
+    name: 'Bruno',
   },
 }
 

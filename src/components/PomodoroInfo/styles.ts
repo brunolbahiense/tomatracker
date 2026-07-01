@@ -1,74 +1,90 @@
 import styled from 'styled-components'
 
-export const WrapperW = styled.main`
-  background-color: ${(props) => props.theme.grayDark};
-  color: ${(props) => props.theme.red};
-  width: auto;
-  height: auto;
-  padding: 3em;
-  text-align: center;
+export const Section = styled.section`
+  background: #1a0808;
+  padding: 5rem 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+`
+
+export const Heading = styled.div`
+  text-align: center;
+`
+
+export const HeadingTitle = styled.h2`
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.5rem;
+`
+
+export const HeadingSubtitle = styled.p`
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.35);
+`
+
+export const Pillars = styled.div`
+  display: flex;
+  gap: 1.5rem;
+  max-width: 700px;
+  width: 100%;
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`
+
+export const Pillar = styled.div`
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: center;
+
+  @media only screen and (max-width: 768px) {
+    width: 90%;
+  }
+`
+
+export const PillarIcon = styled.div`
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: rgba(214, 55, 49, 0.12);
+  border: 1px solid rgba(214, 55, 49, 0.2);
+  display: flex;
+  align-items: center;
   justify-content: center;
-`
-export const Title = styled.h1`
-  margin-top: 3em;
-  font-size: 4rem;
-  @media only screen and (max-width: 1080px) {
-    font-size: 3em;
-  }
+  font-size: 1.2rem;
 `
 
-export const Description = styled.h2`
-  font-size: 2rem;
-  font-weight: 400;
-  @media only screen and (max-width: 1080px) {
-    font-size: 2em;
-  }
-`
-
-export const List = styled.div`
-  font-size: 3rem;
-  margin-top: 3em;
-  padding: 2em;
-  font-weight: 500;
-  border-radius: 15px;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  @media only screen and (max-width: 1080px) {
-    font-size: 1.5em;
-  }
-`
-export const ListItems = styled.div`
+export const PillarHighlight = styled.div`
+  font-size: 1.8rem;
+  font-weight: 700;
   color: ${(props) => props.theme.red};
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  @media only screen and (max-width: 1080px) {
-    font-size: 1em;
-  }
+  letter-spacing: -1px;
+  line-height: 1;
 `
-export const Info = styled.p`
-  color: ${(props) => props.theme.white};
-  font-size: 2rem;
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-  @media only screen and (max-width: 1080px) {
-    font-size: 1em;
-  }
+
+export const PillarTitle = styled.h3`
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.3px;
 `
-export const InfoTitle = styled.h1`
-  font-size: 2rem;
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-  @media only screen and (max-width: 1080px) {
-    font-size: 1em;
-    margin-bottom: 2em;
-  }
+
+export const PillarDescription = styled.p`
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.6;
 `
