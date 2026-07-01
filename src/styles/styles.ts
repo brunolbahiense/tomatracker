@@ -43,7 +43,7 @@ export const SiteTitle = styled.h1`
   }
 
   @media only screen and (max-width: 768px) {
-    font-size: 1.8rem;
+    font-size: 3.6rem;
   }
 `
 
