@@ -73,6 +73,15 @@ const pt: Translations = {
   footer: {
     madeBy: 'Feito por',
     name: 'Bruno'
+  },
+  tasks: {
+    openLabel: 'Tarefas',
+    inputPlaceholder: 'Nova tarefa...',
+    completedLabel: 'CONCLUÍDAS',
+    downloadButton: '↓ Baixar relatório',
+    reportTitle: 'Tomatracker — Relatório de tarefas',
+    reportTotal: (n: number) => `Total: ${n} tarefa${n === 1 ? '' : 's'}`,
+    deleteLabel: 'Excluir tarefa',
   }
 }
 
