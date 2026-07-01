@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Section = styled.section`
-  background: #1a0808;
+  background: ${(props) => props.theme.darkBgSection};
   padding: 5rem 3rem;
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@ export const Heading = styled.div`
 export const HeadingTitle = styled.h2`
   font-size: 1.8rem;
   font-weight: 700;
-  color: #fff;
+  color: ${(props) => props.theme.white};
   letter-spacing: -0.5px;
   margin-bottom: 0.5rem;
 `
@@ -79,7 +79,7 @@ export const PillarHighlight = styled.div`
 export const PillarTitle = styled.h3`
   font-size: 1rem;
   font-weight: 700;
-  color: #fff;
+  color: ${(props) => props.theme.white};
   letter-spacing: -0.3px;
 `
 
