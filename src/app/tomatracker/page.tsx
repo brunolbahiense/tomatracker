@@ -1,12 +1,15 @@
-import * as S from '../../styles/styles'
+'use client'
+
+import * as S from 'styles/styles'
 import Link from 'next/link'
-import PomodoroInfo from '../../components/PomodoroInfo'
+import PomodoroInfo from 'components/PomodoroInfo'
 import Wrapper from 'components/Wrapper'
 import Timer from 'components/Timer'
 import { useState } from 'react'
 
-export default function Home() {
+export default function TomatrackerPage() {
   const [showCounter, setShowCounter] = useState(false)
+
   return (
     <>
       <Wrapper>
