@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import useLocale from 'hooks/useLocale'
 import { useAppTheme } from 'contexts/AppThemeContext'
 import { colorPresets, AccentKey } from 'styles/colorPresets'
@@ -25,25 +25,38 @@ export default function Settings({
   increaseWorkTime,
   decreaseWorkTime,
   increaseBreakTime,
-  decreaseBreakTime,
+  decreaseBreakTime
 }: SettingsProps) {
   const locale = useLocale()
   const { mode, accent, setMode, setAccent } = useAppTheme()
   const [showSettings, setShowSettings] = useState(false)
+  const panelRef = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    if (!showSettings) return
+    const handlePointerDown = (e: PointerEvent) => {
+      if (
+        panelRef.current?.contains(e.target as Node) ||
+        buttonRef.current?.contains(e.target as Node)
+      ) return
+      setShowSettings(false)
+    }
+    document.addEventListener('pointerdown', handlePointerDown)
+    return () => document.removeEventListener('pointerdown', handlePointerDown)
+  }, [showSettings])
 
   return (
     <>
-      {showSettings && (
-        <S.Backdrop onClick={() => setShowSettings(false)} />
-      )}
       <S.SettingsButton
+        ref={buttonRef}
         onClick={() => setShowSettings((prev) => !prev)}
         aria-label={locale.timer.settingsTitle}
       >
         ⚙
       </S.SettingsButton>
       {showSettings && (
-        <S.SettingsPanel>
+        <S.SettingsPanel ref={panelRef}>
           <S.ConfigRow>
             <S.ConfigLabel>{locale.timer.workLabel}</S.ConfigLabel>
             <S.ConfigButton
@@ -79,26 +92,35 @@ export default function Settings({
           <S.SectionDivider />
           <S.SectionLabel>{locale.timer.colorsLabel}</S.SectionLabel>
           <S.ColorRow>
-            {(Object.entries(colorPresets) as [AccentKey, (typeof colorPresets)[AccentKey]][]).map(
-              ([key, preset]) => (
-                <S.ColorSwatch
-                  key={key}
-                  $color={preset.primary}
-                  $selected={accent === key}
-                  onClick={() => setAccent(key)}
-                  aria-label={preset.label}
-                  title={preset.label}
-                />
-              )
-            )}
+            {(
+              Object.entries(colorPresets) as [
+                AccentKey,
+                (typeof colorPresets)[AccentKey]
+              ][]
+            ).map(([key, preset]) => (
+              <S.ColorSwatch
+                key={key}
+                $color={preset.primary}
+                $selected={accent === key}
+                onClick={() => setAccent(key)}
+                aria-label={preset.label}
+                title={preset.label}
+              />
+            ))}
           </S.ColorRow>
           <S.SectionDivider />
           <S.SectionLabel>{locale.timer.themeLabel}</S.SectionLabel>
           <S.ModeSwitcher>
-            <S.ModeButton $active={mode === 'dark'} onClick={() => setMode('dark')}>
+            <S.ModeButton
+              $active={mode === 'dark'}
+              onClick={() => setMode('dark')}
+            >
               ☾ {locale.timer.dark}
             </S.ModeButton>
-            <S.ModeButton $active={mode === 'light'} onClick={() => setMode('light')}>
+            <S.ModeButton
+              $active={mode === 'light'}
+              onClick={() => setMode('light')}
+            >
               ☀ {locale.timer.light}
             </S.ModeButton>
           </S.ModeSwitcher>
