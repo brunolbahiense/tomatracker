@@ -6,7 +6,6 @@ import PomodoroInfo from 'components/PomodoroInfo'
 import Wrapper from 'components/Wrapper'
 import Footer from 'components/Footer'
 import Timer from 'components/Timer'
-import Settings from 'components/Settings'
 
 export default function Home() {
   const {
@@ -28,16 +27,6 @@ export default function Home() {
 
   return (
     <>
-      <Settings
-        workTime={workTime}
-        breakTime={breakTime}
-        isMuted={isMuted}
-        toggleMute={toggleMute}
-        increaseWorkTime={increaseWorkTime}
-        decreaseWorkTime={decreaseWorkTime}
-        increaseBreakTime={increaseBreakTime}
-        decreaseBreakTime={decreaseBreakTime}
-      />
       <Wrapper background="dark">
         <S.SiteTitle>
           🍅 Tomat<span>racker</span>
@@ -52,6 +41,12 @@ export default function Home() {
             ariaCountdown={ariaCountdown}
             toggleTimer={toggleTimer}
             resetTimer={resetTimer}
+            isMuted={isMuted}
+            toggleMute={toggleMute}
+            increaseWorkTime={increaseWorkTime}
+            decreaseWorkTime={decreaseWorkTime}
+            increaseBreakTime={increaseBreakTime}
+            decreaseBreakTime={decreaseBreakTime}
           />
         </S.Frame>
         <S.ScrollHint aria-hidden="true">↓</S.ScrollHint>

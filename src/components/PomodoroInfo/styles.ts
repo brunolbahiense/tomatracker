@@ -7,7 +7,7 @@ export const Section = styled.section`
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid ${(props) => props.theme.borderWeak};
 `
 
 export const Heading = styled.div`
@@ -24,7 +24,7 @@ export const HeadingTitle = styled.h2`
 
 export const HeadingSubtitle = styled.p`
   font-size: 1.3rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: ${(props) => props.theme.textMuted};
 `
 
 export const Pillars = styled.div`
@@ -46,8 +46,8 @@ interface PillarProps {
 
 export const Pillar = styled.div<PillarProps>`
   flex: 1;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: ${(props) => props.theme.surfaceWeak};
+  border: 1px solid ${(props) => props.theme.borderWeak};
   border-radius: 16px;
   padding: 2rem 1.5rem;
   display: flex;
@@ -68,8 +68,8 @@ export const PillarIcon = styled.div`
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background: rgba(214, 55, 49, 0.12);
-  border: 1px solid rgba(214, 55, 49, 0.2);
+  background: ${(props) => props.theme.accentSoft};
+  border: 1px solid ${(props) => props.theme.accentGlow};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,6 +93,6 @@ export const PillarTitle = styled.h3`
 
 export const PillarDescription = styled.p`
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: ${(props) => props.theme.textMuted};
   line-height: 1.6;
 `

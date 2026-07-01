@@ -69,18 +69,18 @@ export const ControlButton = styled.button<ControlButtonProps>`
     props.$primary
       ? `
     background: linear-gradient(135deg, ${props.theme.red}, ${props.theme.lightRed});
-    color: ${props.theme.white};
-    box-shadow: 0 4px 18px rgba(214, 55, 49, 0.45);
+    color: ${props.theme.panelBg};
+    box-shadow: 0 4px 18px ${props.theme.accentShadow};
 
     &:hover {
-      box-shadow: 0 4px 24px rgba(214, 55, 49, 0.65), 0 0 40px rgba(214, 55, 49, 0.3);
+      box-shadow: 0 4px 24px ${props.theme.accentHoverGlow}, 0 0 40px ${props.theme.accentGlow};
       transform: scale(1.04);
     }
   `
       : `
-    background: rgba(255, 255, 255, 0.07);
-    color: rgba(255, 255, 255, 0.45);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: ${props.theme.surfaceStrong};
+    color: ${props.theme.textMuted};
+    border: 1px solid ${props.theme.borderWeak};
 
     &:hover {
       transform: scale(1.05);
@@ -90,23 +90,23 @@ export const ControlButton = styled.button<ControlButtonProps>`
 
 export const TimeInfo = styled.p`
   font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.3);
+  color: ${(props) => props.theme.textMuted};
   margin-top: 1.2rem;
   letter-spacing: 0.05rem;
 
   span {
-    color: rgba(255, 255, 255, 0.5);
+    color: ${(props) => props.theme.gray};
     font-weight: 500;
   }
 `
 
 export const MotivationalText = styled.p`
   font-size: 1.6rem;
-  color: rgba(255, 255, 255, 0.3);
+  color: ${(props) => props.theme.textMuted};
   font-style: italic;
   text-align: center;
   line-height: 1.5;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid ${(props) => props.theme.borderWeak};
   padding-top: 1.2rem;
   margin-top: 1.2rem;
   width: 100%;

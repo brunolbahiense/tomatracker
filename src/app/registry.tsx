@@ -2,13 +2,9 @@
 
 import { useState } from 'react'
 import { useServerInsertedHTML } from 'next/navigation'
-import {
-  ServerStyleSheet,
-  StyleSheetManager,
-  ThemeProvider
-} from 'styled-components'
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 import GlobalStyles from 'styles/global'
-import theme from 'styles/theme'
+import { AppThemeProvider } from 'contexts/AppThemeContext'
 
 export default function StyledComponentsRegistry({
   children
@@ -25,19 +21,19 @@ export default function StyledComponentsRegistry({
 
   if (typeof window !== 'undefined') {
     return (
-      <ThemeProvider theme={theme}>
+      <AppThemeProvider>
         <GlobalStyles />
         {children}
-      </ThemeProvider>
+      </AppThemeProvider>
     )
   }
 
   return (
     <StyleSheetManager sheet={styleSheet.instance}>
-      <ThemeProvider theme={theme}>
+      <AppThemeProvider>
         <GlobalStyles />
         {children}
-      </ThemeProvider>
+      </AppThemeProvider>
     </StyleSheetManager>
   )
 }

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Footer = styled.footer`
   background: ${(props) => props.theme.darkBgFooter};
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid ${(props) => props.theme.borderWeak};
   padding: 2rem 3rem;
   display: flex;
   align-items: center;
@@ -12,10 +12,10 @@ export const Footer = styled.footer`
 
 export const Name = styled.span`
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: ${(props) => props.theme.textMuted};
 
   strong {
-    color: rgba(255, 255, 255, 0.6);
+    color: ${(props) => props.theme.gray};
     font-weight: 600;
   }
 `
@@ -23,7 +23,7 @@ export const Name = styled.span`
 export const Sep = styled.div`
   width: 1px;
   height: 1rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: ${(props) => props.theme.borderWeak};
 `
 
 export const Links = styled.div`
@@ -33,17 +33,17 @@ export const Links = styled.div`
 
 export const Link = styled.a`
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.3);
+  color: ${(props) => props.theme.textMuted};
   letter-spacing: 0.5px;
   text-transform: uppercase;
   text-decoration: none;
   padding: 0.3rem 0.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid ${(props) => props.theme.borderWeak};
   border-radius: 20px;
   transition: all 0.2s;
 
   &:hover {
-    color: rgba(255, 255, 255, 0.6);
-    border-color: rgba(255, 255, 255, 0.2);
+    color: ${(props) => props.theme.gray};
+    border-color: ${(props) => props.theme.borderMid};
   }
 `
