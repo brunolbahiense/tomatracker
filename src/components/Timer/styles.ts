@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -139,28 +138,31 @@ export const ConfigButton = styled.button`
 
 export const SettingsButton = styled.button`
   position: absolute;
-  top: 0.8rem;
-  right: 0.8rem;
-  width: 2.4rem;
-  height: 2.4rem;
+  top: -1.4rem;
+  right: 1rem;
+  width: 2.6rem;
+  height: 2.6rem;
   border-radius: 50%;
-  background-color: ${(props) => props.theme.white};
+  background: rgba(214, 55, 49, 0.1);
+  border: 1px solid rgba(214, 55, 49, 0.3);
   color: ${(props) => props.theme.red};
-  border: none;
+  font-size: 1.1rem;
   cursor: pointer;
-  font-size: 1.4rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 0 12px rgba(214, 55, 49, 0.12);
+  transition: transform 0.4s ease, background 0.2s;
 
-  :hover {
-    transform: scale(1.1);
+  &:hover {
+    transform: rotate(90deg) scale(1.1);
+    background: rgba(214, 55, 49, 0.18);
   }
 `
 
 export const SettingsPanel = styled.div`
   position: absolute;
-  top: 0.5rem;
+  top: 4rem;
   right: 3.5rem;
   background-color: ${(props) => props.theme.white};
   color: ${(props) => props.theme.grayDark};
