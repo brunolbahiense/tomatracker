@@ -18,16 +18,16 @@ export const TasksButton = styled.button<ActiveProps>`
   width: 3.6rem;
   height: 3.6rem;
   border-radius: 50%;
-  background: ${(p) => (p.$active ? p.theme.red : p.theme.accentSoft)};
-  border: 1px solid ${(p) => p.theme.accentGlow};
-  color: ${(p) => (p.$active ? p.theme.panelBg : p.theme.red)};
+  background: ${(props) => (props.$active ? props.theme.red : props.theme.accentSoft)};
+  border: 1px solid ${(props) => props.theme.accentGlow};
+  color: ${(props) => (props.$active ? props.theme.panelBg : props.theme.red)};
   font-size: 2rem;
   line-height: 1;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 12px ${(p) => p.theme.accentGlow};
+  box-shadow: 0 0 12px ${(props) => props.theme.accentGlow};
   transition:
     transform 0.2s ease,
     background 0.2s ease,
@@ -35,7 +35,7 @@ export const TasksButton = styled.button<ActiveProps>`
 
   &:hover {
     transform: scale(1.1);
-    background: ${(p) => (p.$active ? p.theme.red : p.theme.accentHover)};
+    background: ${(props) => (props.$active ? props.theme.red : props.theme.accentHover)};
   }
 `
 
@@ -44,8 +44,8 @@ export const TasksDrawer = styled.div`
   top: 5rem;
   left: 1.5rem;
   z-index: 1000;
-  background-color: ${(p) => p.theme.panelBg};
-  color: ${(p) => p.theme.grayDark};
+  background-color: ${(props) => props.theme.panelBg};
+  color: ${(props) => props.theme.grayDark};
   border-radius: 10px;
   padding: 1.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
@@ -65,20 +65,20 @@ export const InputRow = styled.div`
 
 export const TaskInput = styled.input`
   flex: 1;
-  background: ${(p) => p.theme.surfaceWeak};
-  border: 1px solid ${(p) => p.theme.borderWeak};
+  background: ${(props) => props.theme.surfaceWeak};
+  border: 1px solid ${(props) => props.theme.borderWeak};
   border-radius: 6px;
   padding: 0.6rem 0.8rem;
   font-size: 1.3rem;
-  color: ${(p) => p.theme.grayDark};
+  color: ${(props) => props.theme.grayDark};
   outline: none;
 
   &::placeholder {
-    color: ${(p) => p.theme.textFaint};
+    color: ${(props) => props.theme.grayL};
   }
 
   &:focus {
-    border-color: ${(p) => p.theme.borderMid};
+    border-color: ${(props) => props.theme.borderMid};
   }
 `
 
@@ -86,8 +86,8 @@ export const AddButton = styled.button`
   width: 3rem;
   height: 3rem;
   border-radius: 6px;
-  background: ${(p) => p.theme.red};
-  color: ${(p) => p.theme.panelBg};
+  background: ${(props) => props.theme.red};
+  color: ${(props) => props.theme.panelBg};
   border: none;
   font-size: 2rem;
   line-height: 1;
@@ -124,29 +124,29 @@ export const Checkbox = styled.div<DoneProps>`
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  background: ${(p) => (p.$done ? p.theme.accentSoft : 'transparent')};
-  border: 1.5px solid ${(p) => (p.$done ? p.theme.red : p.theme.borderMid)};
-  color: ${(p) => p.theme.red};
+  background: ${(props) => (props.$done ? props.theme.accentSoft : 'transparent')};
+  border: 1.5px solid ${(props) => (props.$done ? props.theme.red : props.theme.borderMid)};
+  color: ${(props) => props.theme.red};
   transition: all 0.15s;
 `
 
 export const TaskText = styled.span<DoneProps>`
   flex: 1;
   font-size: 1.3rem;
-  color: ${(p) => (p.$done ? p.theme.textMuted : p.theme.grayDark)};
-  text-decoration: ${(p) => (p.$done ? 'line-through' : 'none')};
+  color: ${(props) => (props.$done ? props.theme.gray : props.theme.grayDark)};
+  text-decoration: ${(props) => (props.$done ? 'line-through' : 'none')};
 `
 
 export const Timestamp = styled.span`
   font-size: 1rem;
-  color: ${(p) => p.theme.textFaint};
+  color: ${(props) => props.theme.gray};
   flex-shrink: 0;
 `
 
 export const DeleteButton = styled.button`
   background: none;
   border: none;
-  color: ${(p) => p.theme.textFaint};
+  color: ${(props) => props.theme.gray};
   font-size: 1.6rem;
   line-height: 1;
   cursor: pointer;
@@ -155,13 +155,13 @@ export const DeleteButton = styled.button`
   transition: color 0.15s;
 
   &:hover {
-    color: ${(p) => p.theme.red};
+    color: ${(props) => props.theme.red};
   }
 `
 
 export const SectionDivider = styled.div`
   height: 1px;
-  background: ${(p) => p.theme.borderWeak};
+  background: ${(props) => props.theme.borderWeak};
   margin: 0.4rem 0;
 `
 
@@ -170,7 +170,7 @@ export const SectionLabel = styled.div`
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
-  color: ${(p) => p.theme.textMuted};
+  color: ${(props) => props.theme.gray};
   margin-bottom: 0.2rem;
 `
 
@@ -178,8 +178,8 @@ export const DownloadButton = styled.button`
   width: 100%;
   margin-top: 0.4rem;
   padding: 0.7rem;
-  background: ${(p) => p.theme.red};
-  color: ${(p) => p.theme.panelBg};
+  background: ${(props) => props.theme.red};
+  color: ${(props) => props.theme.panelBg};
   border: none;
   border-radius: 6px;
   font-size: 1.2rem;
