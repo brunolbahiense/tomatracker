@@ -1,25 +1,24 @@
 'use client'
 
 import * as S from 'styles/styles'
-import Link from 'next/link'
-import Footer from 'components/Footer'
+import PomodoroInfo from 'components/PomodoroInfo'
 import Wrapper from 'components/Wrapper'
+import Footer from 'components/Footer'
+import Timer from 'components/Timer'
 
 export default function Home() {
   return (
     <>
-      <Wrapper background="red">
-        <S.TitleDiv>
-          <S.Title>Tomatracker</S.Title>
-        </S.TitleDiv>
-        <S.Container>
-          <S.Message>Improve your productivity and get thing done!</S.Message>
-          <S.Illustration src="/img/tomato.png" alt="Tomato" />
-        </S.Container>
-        <Link href="/tomatracker">
-          <S.Button>I&apos;m Ready</S.Button>
-        </Link>
+      <Wrapper background="dark">
+        <S.SiteTitle>
+          🍅 Tomat<span>racker</span>
+        </S.SiteTitle>
+        <S.Frame>
+          <Timer />
+        </S.Frame>
+        <S.ScrollHint aria-hidden="true">↓</S.ScrollHint>
       </Wrapper>
+      <PomodoroInfo />
       <Footer />
     </>
   )

@@ -24,93 +24,35 @@ export const Frame = styled.main`
   }
 `
 
-export const Title = styled.h1`
-  font-size: 4em;
-  margin-bottom: 0.5em;
-  cursor: pointer;
+export const SiteTitle = styled.h1`
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: -1px;
+  margin-bottom: 1.5rem;
+
+  span {
+    color: ${(props) => props.theme.red};
+  }
+
   @media only screen and (max-width: 768px) {
-    margin-right: 0em;
-    font-size: 3em;
+    font-size: 1.8rem;
   }
 `
 
-export const Description = styled.h2`
-  font-size: 2rem;
-  font-weight: 400;
-`
-export const Message = styled.h2`
-  font-size: 2rem;
-  font-weight: 600;
-  margin-right: 8em;
-  @media only screen and (max-width: 768px) {
-    margin-right: 0em;
-    font-weight: 400;
-  }
-`
+export const ScrollHint = styled.div`
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.2);
+  animation: bounce 2s ease-in-out infinite;
 
-export const Button = styled.button`
-  margin-top: 3rem;
-  color: ${(props) => props.theme.gray};
-  background-color: ${(props) => props.theme.white};
-  padding: 2rem;
-  font-size: 3rem;
-  font-weight: 500;
-  border-radius: 15px;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-
-  :hover {
-    transform: scale(1.1);
-    animation: smooth;
-  }
-`
-
-export const Illustration = styled.img`
-  height: 20em;
-  display: flex;
-  justify-content: flex-end;
-  @media only screen and (max-width: 768px) {
-    display: none;
-  }
-`
-export const Container = styled.div`
-  display: flex;
-  width: 80%;
-  flex-direction: row;
-  align-items: center;
-  padding: 3em 8em;
-  justify-content: center;
-
-  @media only screen and (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    border: none;
-    margin: unset;
-    overflow: hidden;
-    padding: none;
-    width: auto;
-  }
-`
-
-export const TitleDiv = styled.div`
-  cursor: pointer;
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-  padding-left: 15em;
-  font-size: 1.5em;
-  @media only screen and (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: none;
-    box-shadow: none;
-    margin: unset;
-    overflow: hidden;
-    padding: 0em;
-    justify-content: center;
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(5px);
+    }
   }
 `
