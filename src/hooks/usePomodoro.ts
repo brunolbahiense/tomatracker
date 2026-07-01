@@ -97,7 +97,7 @@ const usePomodoro = () => {
     }, 1000)
 
     return () => clearInterval(interval)
-  }, [isRunning, displayMessage, minutes, breakTime, workTime, seconds, Display, locale])
+  }, [isRunning, displayMessage, minutes, breakTime, workTime, seconds, Display, locale, isMuted])
 
   useEffect(() => {
     localStorage.setItem('workTime', String(workTime))
