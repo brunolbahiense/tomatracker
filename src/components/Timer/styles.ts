@@ -6,6 +6,7 @@ const dividerPulse = keyframes`
 `
 
 export const Wrapper = styled.div`
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -147,12 +148,11 @@ export const ConfigButton = styled.button`
   }
 `
 
-// position: absolute anchors to S.Frame (nearest positioned ancestor), floating above the card
 export const SettingsButton = styled.button`
-  position: absolute;
-  top: -1.5rem;
+  position: fixed;
+  top: 1.2rem;
   right: 1.2rem;
-  z-index: 10;
+  z-index: 100;
   width: 2.6rem;
   height: 2.6rem;
   border-radius: 50%;
@@ -176,15 +176,15 @@ export const SettingsButton = styled.button`
 `
 
 export const SettingsPanel = styled.div`
-  position: absolute;
-  top: 4rem;
-  right: 3.5rem;
+  position: fixed;
+  top: 4.4rem;
+  right: 1.2rem;
   background-color: ${(props) => props.theme.white};
   color: ${(props) => props.theme.grayDark};
   border-radius: 10px;
   padding: 1.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-  z-index: 10;
+  z-index: 100;
   min-width: 18rem;
   display: flex;
   flex-direction: column;
