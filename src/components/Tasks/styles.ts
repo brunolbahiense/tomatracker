@@ -11,7 +11,7 @@ interface ActiveProps {
 }
 
 export const TasksButton = styled.button<ActiveProps>`
-  position: fixed;
+  position: absolute;
   top: 1.5rem;
   left: 1.5rem;
   z-index: 1000;
@@ -47,7 +47,7 @@ export const ButtonIcon = styled.span`
 `
 
 export const TasksDrawer = styled.div`
-  position: fixed;
+  position: absolute;
   top: 5rem;
   left: 1.5rem;
   z-index: 1000;
@@ -122,20 +122,25 @@ interface DoneProps {
 }
 
 export const Checkbox = styled.div<DoneProps>`
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 1.8rem;
+  height: 1.8rem;
   border-radius: 4px;
   flex-shrink: 0;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 1.1rem;
   background: ${(props) => (props.$done ? props.theme.accentSoft : 'transparent')};
-  border: 1.5px solid
-    ${(props) => (props.$done ? props.theme.red : props.theme.borderMid)};
+  border: 2px solid
+    ${(props) => (props.$done ? props.theme.red : props.theme.gray)};
   color: ${(props) => props.theme.red};
   transition: all 0.15s;
+
+  &:hover {
+    border-color: ${(props) => props.theme.red};
+    background: ${(props) => props.theme.accentSoft};
+  }
 `
 
 export const TaskText = styled.span<DoneProps>`

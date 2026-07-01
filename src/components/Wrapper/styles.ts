@@ -13,13 +13,14 @@ export const Wrapper = styled.main<{ $background: WrapperBackground }>`
   justify-content: center;
 
   @media only screen and (max-width: 768px) {
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
+    min-height: 100svh;
     border: none;
     box-shadow: none;
-    overflow: hidden;
     margin: unset;
     width: 100%;
-    height: 105%;
+    padding: 2rem 1.5rem;
   }
 
   ${(props) =>

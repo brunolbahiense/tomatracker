@@ -15,15 +15,19 @@ export const Heading = styled.div`
 `
 
 export const HeadingTitle = styled.h2`
-  font-size: 1.8rem;
+  font-size: 2.8rem;
   font-weight: 700;
   color: ${(props) => props.theme.white};
   letter-spacing: -0.5px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 2.4rem;
+  }
 `
 
 export const HeadingSubtitle = styled.p`
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   color: ${(props) => props.theme.textMuted};
 `
 
@@ -65,19 +69,19 @@ export const Pillar = styled.div<PillarProps>`
 `
 
 export const PillarIcon = styled.div`
-  width: 3rem;
-  height: 3rem;
+  width: 4.2rem;
+  height: 4.2rem;
   border-radius: 50%;
   background: ${(props) => props.theme.accentSoft};
   border: 1px solid ${(props) => props.theme.accentGlow};
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
 `
 
 export const PillarHighlight = styled.div`
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   font-weight: 700;
   color: ${(props) => props.theme.red};
   letter-spacing: -1px;
@@ -85,14 +89,14 @@ export const PillarHighlight = styled.div`
 `
 
 export const PillarTitle = styled.h3`
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: ${(props) => props.theme.white};
   letter-spacing: -0.3px;
 `
 
 export const PillarDescription = styled.p`
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   color: ${(props) => props.theme.textMuted};
   line-height: 1.6;
 `

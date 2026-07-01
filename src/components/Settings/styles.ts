@@ -7,7 +7,7 @@ export const Backdrop = styled.div`
 `
 
 export const SettingsButton = styled.button`
-  position: fixed;
+  position: absolute;
   top: 1.5rem;
   right: 1.5rem;
   z-index: 1000;
@@ -47,7 +47,7 @@ export const ButtonIcon = styled.span`
 `
 
 export const SettingsPanel = styled.div`
-  position: fixed;
+  position: absolute;
   top: 5rem;
   right: 1.5rem;
   background-color: ${(props) => props.theme.panelBg};
