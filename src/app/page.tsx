@@ -1,8 +1,10 @@
-/* eslint-disable react/no-unescaped-entities */
-import * as S from '../styles/styles'
+'use client'
+
+import * as S from 'styles/styles'
 import Link from 'next/link'
 import Footer from 'components/Footer'
 import Wrapper from 'components/Wrapper'
+
 export default function Home() {
   return (
     <>
@@ -12,10 +14,10 @@ export default function Home() {
         </S.TitleDiv>
         <S.Container>
           <S.Message>Improve your productivity and get thing done!</S.Message>
-          <S.Illustration src="/img/tomato.png" />
+          <S.Illustration src="/img/tomato.png" alt="Tomato" />
         </S.Container>
-        <Link href="/Tomatracker">
-          <S.Button>I'm Ready</S.Button>
+        <Link href="/tomatracker">
+          <S.Button>I&apos;m Ready</S.Button>
         </Link>
       </Wrapper>
       <Footer />
