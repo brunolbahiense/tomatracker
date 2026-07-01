@@ -1,14 +1,6 @@
-import { useState, useEffect } from 'react'
-import { translations } from 'locales'
+import { useContext } from 'react'
+import { LocaleContext } from 'contexts/LocaleContext'
 
-const useLocale = () => {
-  const [localeKey, setLocaleKey] = useState<'pt' | 'en'>('en')
-
-  useEffect(() => {
-    setLocaleKey(navigator.language.startsWith('pt') ? 'pt' : 'en')
-  }, [])
-
-  return translations[localeKey]
-}
+const useLocale = () => useContext(LocaleContext)
 
 export default useLocale

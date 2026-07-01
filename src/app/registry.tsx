@@ -5,6 +5,7 @@ import { useServerInsertedHTML } from 'next/navigation'
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 import GlobalStyles from 'styles/global'
 import { AppThemeProvider } from 'contexts/AppThemeContext'
+import { LocaleProvider } from 'contexts/LocaleContext'
 
 export default function StyledComponentsRegistry({
   children
@@ -21,19 +22,23 @@ export default function StyledComponentsRegistry({
 
   if (typeof window !== 'undefined') {
     return (
-      <AppThemeProvider>
-        <GlobalStyles />
-        {children}
-      </AppThemeProvider>
+      <LocaleProvider>
+        <AppThemeProvider>
+          <GlobalStyles />
+          {children}
+        </AppThemeProvider>
+      </LocaleProvider>
     )
   }
 
   return (
     <StyleSheetManager sheet={styleSheet.instance}>
-      <AppThemeProvider>
-        <GlobalStyles />
-        {children}
-      </AppThemeProvider>
+      <LocaleProvider>
+        <AppThemeProvider>
+          <GlobalStyles />
+          {children}
+        </AppThemeProvider>
+      </LocaleProvider>
     </StyleSheetManager>
   )
 }

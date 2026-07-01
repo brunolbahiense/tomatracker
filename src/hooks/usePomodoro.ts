@@ -1,23 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import useLocale from './useLocale'
 
 const DEFAULT_WORK_TIME = 25
 const DEFAULT_BREAK_TIME = 5
-
-const getStoredWorkTime = () => {
-  if (typeof window === 'undefined') return DEFAULT_WORK_TIME
-  return Number(localStorage.getItem('workTime')) || DEFAULT_WORK_TIME
-}
-
-const getStoredBreakTime = () => {
-  if (typeof window === 'undefined') return DEFAULT_BREAK_TIME
-  return Number(localStorage.getItem('breakTime')) || DEFAULT_BREAK_TIME
-}
-
-const getStoredIsMuted = () => {
-  if (typeof window === 'undefined') return false
-  return localStorage.getItem('isMuted') === 'true'
-}
 
 const requestNotificationPermission = async () => {
   if (
@@ -64,129 +49,126 @@ const playSound = () => {
 }
 
 const usePomodoro = () => {
-  const [workTime, setWorkTime] = useState(getStoredWorkTime)
-  const [breakTime, setBreakTime] = useState(getStoredBreakTime)
-  const [minutes, setMinutes] = useState(getStoredWorkTime)
-  const [seconds, setSeconds] = useState(0)
-  const [displayMessage, setDisplayMessage] = useState(false)
+  const [workTime, setWorkTime] = useState(DEFAULT_WORK_TIME)
+  const [breakTime, setBreakTime] = useState(DEFAULT_BREAK_TIME)
+  const [secondsLeft, setSecondsLeft] = useState(DEFAULT_WORK_TIME * 60)
   const [isRunning, setIsRunning] = useState(false)
-  const [isMuted, setIsMuted] = useState(getStoredIsMuted)
+  const [displayMessage, setDisplayMessage] = useState(false)
+  const [isMuted, setIsMuted] = useState(false)
+  const endTimeRef = useRef(0)
 
   const locale = useLocale()
 
-  const TimerMinutes = minutes < 10 ? `0${minutes}` : minutes
-  const TimerSeconds = seconds < 10 ? `0${seconds}` : seconds
-  const Display = `${TimerMinutes}:${TimerSeconds}`
+  useEffect(() => {
+    const storedWorkTime =
+      Number(localStorage.getItem('workTime')) || DEFAULT_WORK_TIME
+    const storedBreakTime =
+      Number(localStorage.getItem('breakTime')) || DEFAULT_BREAK_TIME
+    setWorkTime(storedWorkTime)
+    setBreakTime(storedBreakTime)
+    setSecondsLeft(storedWorkTime * 60)
+    setIsMuted(localStorage.getItem('isMuted') === 'true')
+  }, [])
 
+  // O tempo restante vem de um timestamp de término, não de decrementos por
+  // tick — assim o timer se autocorrige mesmo com throttling de aba inativa.
   useEffect(() => {
     if (!isRunning) return
 
-    document.title = Display
-
     const interval = setInterval(() => {
-      if (seconds === 0) {
-        if (minutes !== 0) {
-          setSeconds(59)
-          setMinutes(minutes - 1)
-        } else {
-          const nextMinutes = displayMessage ? workTime - 1 : breakTime
-          setSeconds(0)
-          setMinutes(nextMinutes)
-          setDisplayMessage(!displayMessage)
-
-          if (!isMuted) playSound()
-          if (displayMessage) {
-            sendNotification(
-              locale.notifications.backToWork,
-              locale.notifications.backToWorkBody(workTime)
-            )
-          } else {
-            sendNotification(
-              locale.notifications.breakTime,
-              locale.notifications.breakTimeBody(breakTime)
-            )
-          }
-        }
-      } else {
-        setSeconds(seconds - 1)
-      }
-    }, 1000)
+      const remaining = Math.max(
+        0,
+        Math.round((endTimeRef.current - Date.now()) / 1000)
+      )
+      setSecondsLeft(remaining)
+    }, 500)
 
     return () => clearInterval(interval)
+  }, [isRunning])
+
+  useEffect(() => {
+    if (!isRunning || secondsLeft > 0) return
+
+    const startingBreak = !displayMessage
+    const nextMinutes = startingBreak ? breakTime : workTime
+    setDisplayMessage(startingBreak)
+    setSecondsLeft(nextMinutes * 60)
+    endTimeRef.current = Date.now() + nextMinutes * 60 * 1000
+
+    if (!isMuted) playSound()
+    if (startingBreak) {
+      sendNotification(
+        locale.notifications.breakTime,
+        locale.notifications.breakTimeBody(breakTime)
+      )
+    } else {
+      sendNotification(
+        locale.notifications.backToWork,
+        locale.notifications.backToWorkBody(workTime)
+      )
+    }
   }, [
     isRunning,
+    secondsLeft,
     displayMessage,
-    minutes,
-    breakTime,
     workTime,
-    seconds,
-    Display,
-    locale,
-    isMuted
+    breakTime,
+    isMuted,
+    locale
   ])
 
-  useEffect(() => {
-    localStorage.setItem('workTime', String(workTime))
-  }, [workTime])
+  const minutes = Math.floor(secondsLeft / 60)
+  const seconds = secondsLeft % 60
+  const Display = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
 
   useEffect(() => {
-    localStorage.setItem('breakTime', String(breakTime))
-  }, [breakTime])
-
-  useEffect(() => {
-    localStorage.setItem('isMuted', String(isMuted))
-  }, [isMuted])
+    if (isRunning) document.title = Display
+  }, [isRunning, Display])
 
   const toggleTimer = async () => {
-    if (!isRunning) await requestNotificationPermission()
-    setIsRunning((prev) => !prev)
+    if (isRunning) {
+      setIsRunning(false)
+      return
+    }
+    await requestNotificationPermission()
+    endTimeRef.current = Date.now() + secondsLeft * 1000
+    setIsRunning(true)
   }
 
   const resetTimer = () => {
     setIsRunning(false)
-    setMinutes(workTime)
-    setSeconds(0)
     setDisplayMessage(false)
+    setSecondsLeft(workTime * 60)
     document.title = 'Tomatracker'
   }
 
-  const toggleMute = () => setIsMuted((prev) => !prev)
+  const toggleMute = () => {
+    const next = !isMuted
+    setIsMuted(next)
+    localStorage.setItem('isMuted', String(next))
+  }
 
-  const increaseWorkTime = () => {
-    const next = workTime + 1
+  const restartCountdown = (nextMinutes: number) => {
+    setSecondsLeft(nextMinutes * 60)
+    endTimeRef.current = Date.now() + nextMinutes * 60 * 1000
+  }
+
+  const changeWorkTime = (next: number) => {
     setWorkTime(next)
-    if (!displayMessage) {
-      setMinutes(next)
-      setSeconds(0)
-    }
+    localStorage.setItem('workTime', String(next))
+    if (!displayMessage) restartCountdown(next)
   }
 
-  const decreaseWorkTime = () => {
-    const next = Math.max(1, workTime - 1)
-    setWorkTime(next)
-    if (!displayMessage) {
-      setMinutes(next)
-      setSeconds(0)
-    }
-  }
-
-  const increaseBreakTime = () => {
-    const next = breakTime + 1
+  const changeBreakTime = (next: number) => {
     setBreakTime(next)
-    if (displayMessage) {
-      setMinutes(next)
-      setSeconds(0)
-    }
+    localStorage.setItem('breakTime', String(next))
+    if (displayMessage) restartCountdown(next)
   }
 
-  const decreaseBreakTime = () => {
-    const next = Math.max(1, breakTime - 1)
-    setBreakTime(next)
-    if (displayMessage) {
-      setMinutes(next)
-      setSeconds(0)
-    }
-  }
+  const increaseWorkTime = () => changeWorkTime(workTime + 1)
+  const decreaseWorkTime = () => changeWorkTime(Math.max(1, workTime - 1))
+  const increaseBreakTime = () => changeBreakTime(breakTime + 1)
+  const decreaseBreakTime = () => changeBreakTime(Math.max(1, breakTime - 1))
 
   const ariaCountdown = locale.timer.aria.countdown(minutes, seconds)
 

@@ -8,14 +8,14 @@ import {
   ReactNode
 } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { AccentKey } from 'styles/colorPresets'
+import { AccentKey, colorPresets } from 'styles/colorPresets'
 import { ThemeMode, buildTheme } from 'styles/buildTheme'
 
 interface AppThemeContextValue {
   mode: ThemeMode
   accent: AccentKey
-  setMode: (m: ThemeMode) => void
-  setAccent: (a: AccentKey) => void
+  setMode: (mode: ThemeMode) => void
+  setAccent: (accent: AccentKey) => void
 }
 
 const AppThemeContext = createContext<AppThemeContextValue>({
@@ -31,20 +31,20 @@ export function AppThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const savedMode = localStorage.getItem('tt_mode') as ThemeMode | null
-    const savedAccent = localStorage.getItem('tt_accent') as AccentKey | null
+    const savedAccent = localStorage.getItem('tt_accent')
     if (savedMode === 'dark' || savedMode === 'light') setModeState(savedMode)
-    if (savedAccent && savedAccent in colorPresetsKeys)
-      setAccentState(savedAccent)
+    if (savedAccent && savedAccent in colorPresets)
+      setAccentState(savedAccent as AccentKey)
   }, [])
 
-  const setMode = (m: ThemeMode) => {
-    setModeState(m)
-    localStorage.setItem('tt_mode', m)
+  const setMode = (mode: ThemeMode) => {
+    setModeState(mode)
+    localStorage.setItem('tt_mode', mode)
   }
 
-  const setAccent = (a: AccentKey) => {
-    setAccentState(a)
-    localStorage.setItem('tt_accent', a)
+  const setAccent = (accent: AccentKey) => {
+    setAccentState(accent)
+    localStorage.setItem('tt_accent', accent)
   }
 
   return (
@@ -53,15 +53,6 @@ export function AppThemeProvider({ children }: { children: ReactNode }) {
     </AppThemeContext.Provider>
   )
 }
-
-const colorPresetsKeys = new Set<string>([
-  'tomato',
-  'sakura',
-  'ocean',
-  'emerald',
-  'mustard',
-  'gruvbox'
-])
 
 export function useAppTheme() {
   return useContext(AppThemeContext)

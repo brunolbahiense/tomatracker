@@ -2,12 +2,15 @@
 
 import * as S from './styles'
 
+export type WrapperBackground = 'blue' | 'red' | 'dark'
+
 export interface WrapperProps {
-  background?: 'blue' | 'red' | 'dark'
+  background?: WrapperBackground
   children?: React.ReactNode
 }
-const Wrapper = ({ background = 'red', ...props }: WrapperProps) => {
-  return <S.Wrapper {...props} background={background} />
+
+const Wrapper = ({ background = 'red', children }: WrapperProps) => {
+  return <S.Wrapper $background={background}>{children}</S.Wrapper>
 }
 
 export default Wrapper

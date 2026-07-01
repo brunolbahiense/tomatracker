@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { WrapperProps } from '.'
+import { WrapperBackground } from '.'
 
-export const Wrapper = styled.main<WrapperProps>`
+export const Wrapper = styled.main<{ $background: WrapperBackground }>`
   color: ${(props) => props.theme.white};
   max-width: 100vw;
   height: 95vh;
@@ -23,17 +23,17 @@ export const Wrapper = styled.main<WrapperProps>`
   }
 
   ${(props) =>
-    props.background === 'red' &&
+    props.$background === 'red' &&
     `background: ${props.theme.red};
   `};
 
   ${(props) =>
-    props.background === 'blue' &&
+    props.$background === 'blue' &&
     `background: ${props.theme.blue};
   `};
 
   ${(props) =>
-    props.background === 'dark' &&
+    props.$background === 'dark' &&
     `background: radial-gradient(ellipse at 50% 0%, ${props.theme.darkBgTop} 0%, ${props.theme.darkBg} 100%);
   `};
 `

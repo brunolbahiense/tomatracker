@@ -35,12 +35,19 @@ export default function Tasks({
         return
       setOpen(false)
     }
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
     document.addEventListener('pointerdown', handlePointerDown)
-    return () => document.removeEventListener('pointerdown', handlePointerDown)
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown)
+      document.removeEventListener('keydown', handleKeyDown)
+    }
   }, [open])
 
-  const activeTasks = taskList.filter((t) => !t.done)
-  const completedTasks = taskList.filter((t) => t.done)
+  const activeTasks = taskList.filter((task) => !task.done)
+  const completedTasks = taskList.filter((task) => task.done)
 
   const handleAdd = () => {
     if (!inputValue.trim()) return
@@ -60,18 +67,18 @@ export default function Tasks({
       today,
       '',
       `${locale.tasks.completedLabel}:`,
-      ...completedTasks.map((t) => `✓ ${t.text} — ${t.completedAt}`),
+      ...completedTasks.map((task) => `✓ ${task.text} — ${task.completedAt}`),
       '',
       locale.tasks.reportTotal(completedTasks.length)
     ]
     const blob = new Blob([lines.join('\n')], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `tomatracker-${today}.txt`
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `tomatracker-${today}.txt`
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
     URL.revokeObjectURL(url)
   }
 

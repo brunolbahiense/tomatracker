@@ -10,7 +10,6 @@ export interface Task {
 const STORAGE_KEY = 'tt_task_list'
 
 const loadTasks = (): Task[] => {
-  if (typeof window === 'undefined') return []
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
     return raw ? (JSON.parse(raw) as Task[]) : []
@@ -20,37 +19,42 @@ const loadTasks = (): Task[] => {
 }
 
 const useTasks = () => {
-  const [taskList, setTaskList] = useState<Task[]>(loadTasks)
+  const [taskList, setTaskList] = useState<Task[]>([])
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(taskList))
-  }, [taskList])
+    setTaskList(loadTasks())
+  }, [])
+
+  const updateTaskList = (nextTaskList: Task[]) => {
+    setTaskList(nextTaskList)
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(nextTaskList))
+  }
 
   const addTask = (text: string) => {
     const trimmed = text.trim()
     if (!trimmed) return
-    setTaskList((prev) => [
-      ...prev,
+    updateTaskList([
+      ...taskList,
       { id: crypto.randomUUID(), text: trimmed, done: false, completedAt: null }
     ])
   }
 
   const toggleTask = (id: string) => {
-    setTaskList((prev) =>
-      prev.map((t) => {
-        if (t.id !== id) return t
-        const done = !t.done
+    updateTaskList(
+      taskList.map((task) => {
+        if (task.id !== id) return task
+        const done = !task.done
         const now = new Date()
         const completedAt = done
           ? `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`
           : null
-        return { ...t, done, completedAt }
+        return { ...task, done, completedAt }
       })
     )
   }
 
   const deleteTask = (id: string) => {
-    setTaskList((prev) => prev.filter((t) => t.id !== id))
+    updateTaskList(taskList.filter((task) => task.id !== id))
   }
 
   return { taskList, addTask, toggleTask, deleteTask }

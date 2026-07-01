@@ -11,7 +11,8 @@ function hexToRgb(hex: string): [number, number, number] {
 }
 
 function toHex(r: number, g: number, b: number): string {
-  const clamp = (n: number) => Math.max(0, Math.min(255, Math.round(n)))
+  const clamp = (channel: number) =>
+    Math.max(0, Math.min(255, Math.round(channel)))
   return `#${clamp(r).toString(16).padStart(2, '0')}${clamp(g).toString(16).padStart(2, '0')}${clamp(b).toString(16).padStart(2, '0')}`
 }
 

@@ -18,8 +18,8 @@ const pt: Translations = {
     dark: 'Escuro',
     light: 'Claro',
     aria: {
-      countdown: (m: number, s: number) =>
-        `${m} minutos e ${s} segundos restantes`,
+      countdown: (minutes: number, seconds: number) =>
+        `${minutes} minutos e ${seconds} segundos restantes`,
       decreaseWork: 'Diminuir tempo de foco',
       increaseWork: 'Aumentar tempo de foco',
       decreaseBreak: 'Diminuir tempo de pausa',
@@ -39,9 +39,9 @@ const pt: Translations = {
   },
   notifications: {
     backToWork: 'De volta ao foco!',
-    backToWorkBody: (m: number) => `Concentre-se por ${m} minutos.`,
+    backToWorkBody: (minutes: number) => `Concentre-se por ${minutes} minutos.`,
     breakTime: 'Hora da pausa!',
-    breakTimeBody: (m: number) => `Descanse por ${m} minutos.`
+    breakTimeBody: (minutes: number) => `Descanse por ${minutes} minutos.`
   },
   pomodoroInfo: {
     title: 'A Técnica Pomodoro',
@@ -80,7 +80,8 @@ const pt: Translations = {
     completedLabel: 'CONCLUÍDAS',
     downloadButton: '↓ Baixar relatório',
     reportTitle: 'Tomatracker — Relatório de tarefas',
-    reportTotal: (n: number) => `Total: ${n} tarefa${n === 1 ? '' : 's'}`,
+    reportTotal: (count: number) =>
+      `Total: ${count} tarefa${count === 1 ? '' : 's'}`,
     deleteLabel: 'Excluir tarefa',
     addLabel: 'Adicionar tarefa'
   }

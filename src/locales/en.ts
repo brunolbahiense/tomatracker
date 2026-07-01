@@ -16,8 +16,8 @@ const en = {
     dark: 'Dark',
     light: 'Light',
     aria: {
-      countdown: (m: number, s: number) =>
-        `${m} minutes and ${s} seconds remaining`,
+      countdown: (minutes: number, seconds: number) =>
+        `${minutes} minutes and ${seconds} seconds remaining`,
       decreaseWork: 'Decrease work time',
       increaseWork: 'Increase work time',
       decreaseBreak: 'Decrease break time',
@@ -37,9 +37,9 @@ const en = {
   },
   notifications: {
     backToWork: 'Back to work!',
-    backToWorkBody: (m: number) => `Focus for ${m} minutes.`,
+    backToWorkBody: (minutes: number) => `Focus for ${minutes} minutes.`,
     breakTime: 'Break time!',
-    breakTimeBody: (m: number) => `Relax for ${m} minutes.`
+    breakTimeBody: (minutes: number) => `Relax for ${minutes} minutes.`
   },
   pomodoroInfo: {
     title: 'The Pomodoro Technique',
@@ -75,7 +75,8 @@ const en = {
     completedLabel: 'COMPLETED',
     downloadButton: '↓ Download report',
     reportTitle: 'Tomatracker — Task Report',
-    reportTotal: (n: number) => `Total: ${n} task${n === 1 ? '' : 's'}`,
+    reportTotal: (count: number) =>
+      `Total: ${count} task${count === 1 ? '' : 's'}`,
     deleteLabel: 'Delete task',
     addLabel: 'Add task'
   }
