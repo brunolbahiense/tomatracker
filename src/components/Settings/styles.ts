@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Backdrop = styled.div`
   position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: 999;
 `
 
 export const SettingsButton = styled.button`
@@ -114,8 +114,10 @@ export const ColorSwatch = styled.button<SwatchProps>`
   height: 2.4rem;
   border-radius: 50%;
   background: ${(props) => props.$color};
-  border: 2px solid ${(props) => (props.$selected ? props.theme.grayDark : 'transparent')};
-  outline: 2px solid ${(props) => (props.$selected ? props.$color : 'transparent')};
+  border: 2px solid
+    ${(props) => (props.$selected ? props.theme.grayDark : 'transparent')};
+  outline: 2px solid
+    ${(props) => (props.$selected ? props.$color : 'transparent')};
   outline-offset: 2px;
   cursor: pointer;
   transition:
