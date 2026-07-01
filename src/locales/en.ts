@@ -23,6 +23,16 @@ const en = {
       increaseBreak: 'Increase break time',
       muteLabel: 'Toggle sound',
     },
+    motivationalPhrases: [
+      'One pomodoro at a time.',
+      'Deep work starts here.',
+      'Focus is a superpower.',
+      'Make this 25 minutes count.',
+      'Small steps, big results.',
+      'Stay in the zone.',
+      'Progress over perfection.',
+      'Your best work happens now.',
+    ],
   },
   notifications: {
     backToWork: 'Back to work!',
