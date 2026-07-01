@@ -20,7 +20,7 @@ const Timer = () => {
     increaseWorkTime,
     decreaseWorkTime,
     increaseBreakTime,
-    decreaseBreakTime,
+    decreaseBreakTime
   } = usePomodoro()
 
   const locale = useLocale()
@@ -31,7 +31,10 @@ const Timer = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (settingsRef.current && !settingsRef.current.contains(event.target as Node)) {
+      if (
+        settingsRef.current &&
+        !settingsRef.current.contains(event.target as Node)
+      ) {
         setShowSettings(false)
       }
     }
@@ -41,7 +44,9 @@ const Timer = () => {
 
   useEffect(() => {
     if (isRunning && !wasRunningRef.current) {
-      setPhraseIndex((prev) => (prev + 1) % locale.timer.motivationalPhrases.length)
+      setPhraseIndex(
+        (prev) => (prev + 1) % locale.timer.motivationalPhrases.length
+      )
     }
     wasRunningRef.current = isRunning
   }, [isRunning, locale.timer.motivationalPhrases.length])
@@ -108,7 +113,9 @@ const Timer = () => {
         <S.ControlButton $primary onClick={toggleTimer}>
           {isRunning ? locale.timer.pause : locale.timer.play}
         </S.ControlButton>
-        <S.ControlButton onClick={resetTimer}>{locale.timer.reset}</S.ControlButton>
+        <S.ControlButton onClick={resetTimer}>
+          {locale.timer.reset}
+        </S.ControlButton>
       </S.Controls>
       <S.TimeInfo>
         {locale.timer.workLabel}: <span>{workTime} min</span>

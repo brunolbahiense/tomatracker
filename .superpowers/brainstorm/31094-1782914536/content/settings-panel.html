@@ -1,0 +1,104 @@
+<h2>Como o painel de configurações deve ficar por dentro?</h2>
+<p class="subtitle">Timer com o painel ⚙ aberto — escolha o estilo do toggle de mute</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#EC443E;border-radius:8px;padding:1.2rem;color:#eee;font-family:monospace;text-align:center;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;position:relative">
+        <div style="position:absolute;top:0.5rem;right:0.5rem;background:#eee;color:#D63731;width:1.6rem;height:1.6rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:bold">⚙</div>
+        <div style="font-size:2.2rem;font-weight:bold;margin-top:0.5rem">25:00</div>
+        <div style="display:flex;gap:0.5rem">
+          <div style="background:#eee;color:#6f6f6e;padding:0.3rem 0.8rem;border-radius:6px;font-size:0.8rem">INICIAR</div>
+          <div style="background:#eee;color:#6f6f6e;padding:0.3rem 0.8rem;border-radius:6px;font-size:0.8rem">REINICIAR</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.18);border-radius:8px;padding:0.8rem;width:100%;font-size:0.78rem;text-align:left">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem">
+            <span>Foco</span>
+            <span style="display:flex;align-items:center;gap:0.4rem"><span style="background:#eee;color:#6f6f6e;width:1.2rem;height:1.2rem;border-radius:4px;display:inline-flex;align-items:center;justify-content:center">−</span> 25 <span style="background:#eee;color:#6f6f6e;width:1.2rem;height:1.2rem;border-radius:4px;display:inline-flex;align-items:center;justify-content:center">+</span></span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem">
+            <span>Pausa</span>
+            <span style="display:flex;align-items:center;gap:0.4rem"><span style="background:#eee;color:#6f6f6e;width:1.2rem;height:1.2rem;border-radius:4px;display:inline-flex;align-items:center;justify-content:center">−</span> &nbsp;5 <span style="background:#eee;color:#6f6f6e;width:1.2rem;height:1.2rem;border-radius:4px;display:inline-flex;align-items:center;justify-content:center">+</span></span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <span>Som</span>
+            <span style="background:#eee;color:#6f6f6e;padding:0.15rem 0.6rem;border-radius:4px;font-size:0.75rem">🔊 ON</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Botão texto ON/OFF</h3>
+      <p>Simples e consistente com os outros botões do projeto. Clica para alternar entre 🔊 ON e 🔇 OFF.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#EC443E;border-radius:8px;padding:1.2rem;color:#eee;font-family:monospace;text-align:center;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;position:relative">
+        <div style="position:absolute;top:0.5rem;right:0.5rem;background:#eee;color:#D63731;width:1.6rem;height:1.6rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:bold">⚙</div>
+        <div style="font-size:2.2rem;font-weight:bold;margin-top:0.5rem">25:00</div>
+        <div style="display:flex;gap:0.5rem">
+          <div style="background:#eee;color:#6f6f6e;padding:0.3rem 0.8rem;border-radius:6px;font-size:0.8rem">INICIAR</div>
+          <div style="background:#eee;color:#6f6f6e;padding:0.3rem 0.8rem;border-radius:6px;font-size:0.8rem">REINICIAR</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.18);border-radius:8px;padding:0.8rem;width:100%;font-size:0.78rem;text-align:left">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem">
+            <span>Foco</span>
+            <span style="display:flex;align-items:center;gap:0.4rem"><span style="background:#eee;color:#6f6f6e;width:1.2rem;height:1.2rem;border-radius:4px;display:inline-flex;align-items:center;justify-content:center">−</span> 25 <span style="background:#eee;color:#6f6f6e;width:1.2rem;height:1.2rem;border-radius:4px;display:inline-flex;align-items:center;justify-content:center">+</span></span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem">
+            <span>Pausa</span>
+            <span style="display:flex;align-items:center;gap:0.4rem"><span style="background:#eee;color:#6f6f6e;width:1.2rem;height:1.2rem;border-radius:4px;display:inline-flex;align-items:center;justify-content:center">−</span> &nbsp;5 <span style="background:#eee;color:#6f6f6e;width:1.2rem;height:1.2rem;border-radius:4px;display:inline-flex;align-items:center;justify-content:center">+</span></span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <span>Som</span>
+            <span style="display:flex;align-items:center;gap:0.3rem">
+              <span style="font-size:1rem">🔊</span>
+              <span style="background:#eee;border-radius:20px;width:2.4rem;height:1.2rem;display:inline-flex;align-items:center;padding:0.1rem">
+                <span style="background:#D63731;border-radius:50%;width:1rem;height:1rem;margin-left:auto;display:block"></span>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Toggle switch</h3>
+      <p>Visual moderno de switch. Mais fidelidade ao estado atual (ligado/desligado). Requer um styled component novo.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#EC443E;border-radius:8px;padding:1.2rem;color:#eee;font-family:monospace;text-align:center;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;position:relative">
+        <div style="position:absolute;top:0.5rem;right:0.5rem;background:#eee;color:#D63731;width:1.6rem;height:1.6rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:bold">⚙</div>
+        <div style="font-size:2.2rem;font-weight:bold;margin-top:0.5rem">25:00</div>
+        <div style="display:flex;gap:0.5rem">
+          <div style="background:#eee;color:#6f6f6e;padding:0.3rem 0.8rem;border-radius:6px;font-size:0.8rem">INICIAR</div>
+          <div style="background:#eee;color:#6f6f6e;padding:0.3rem 0.8rem;border-radius:6px;font-size:0.8rem">REINICIAR</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.18);border-radius:8px;padding:0.8rem;width:100%;font-size:0.78rem;text-align:left">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem">
+            <span>Foco</span>
+            <span style="display:flex;align-items:center;gap:0.4rem"><span style="background:#eee;color:#6f6f6e;width:1.2rem;height:1.2rem;border-radius:4px;display:inline-flex;align-items:center;justify-content:center">−</span> 25 <span style="background:#eee;color:#6f6f6e;width:1.2rem;height:1.2rem;border-radius:4px;display:inline-flex;align-items:center;justify-content:center">+</span></span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem">
+            <span>Pausa</span>
+            <span style="display:flex;align-items:center;gap:0.4rem"><span style="background:#eee;color:#6f6f6e;width:1.2rem;height:1.2rem;border-radius:4px;display:inline-flex;align-items:center;justify-content:center">−</span> &nbsp;5 <span style="background:#eee;color:#6f6f6e;width:1.2rem;height:1.2rem;border-radius:4px;display:inline-flex;align-items:center;justify-content:center">+</span></span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <span>Som</span>
+            <span style="font-size:1.3rem;cursor:pointer">🔊</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Só o ícone clicável</h3>
+      <p>Clica no 🔊 para mutar (vira 🔇). Sem texto, sem switch. Mínimo e direto — lembra o padrão de players de áudio.</p>
+    </div>
+  </div>
+
+</div>

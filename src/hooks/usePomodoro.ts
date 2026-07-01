@@ -20,13 +20,19 @@ const getStoredIsMuted = () => {
 }
 
 const requestNotificationPermission = async () => {
-  if (typeof Notification !== 'undefined' && Notification.permission === 'default') {
+  if (
+    typeof Notification !== 'undefined' &&
+    Notification.permission === 'default'
+  ) {
     await Notification.requestPermission()
   }
 }
 
 const sendNotification = (title: string, body: string) => {
-  if (typeof Notification !== 'undefined' && Notification.permission === 'granted') {
+  if (
+    typeof Notification !== 'undefined' &&
+    Notification.permission === 'granted'
+  ) {
     new Notification(title, { body, icon: '/img/tomato.png' })
   }
 }
@@ -34,7 +40,9 @@ const sendNotification = (title: string, body: string) => {
 const playSound = () => {
   const AudioContextClass =
     typeof window !== 'undefined'
-      ? window.AudioContext || (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext
+      ? window.AudioContext ||
+        (window as Window & { webkitAudioContext?: typeof AudioContext })
+          .webkitAudioContext
       : undefined
 
   if (!AudioContextClass) return
@@ -88,9 +96,15 @@ const usePomodoro = () => {
 
           if (!isMuted) playSound()
           if (displayMessage) {
-            sendNotification(locale.notifications.backToWork, locale.notifications.backToWorkBody(workTime))
+            sendNotification(
+              locale.notifications.backToWork,
+              locale.notifications.backToWorkBody(workTime)
+            )
           } else {
-            sendNotification(locale.notifications.breakTime, locale.notifications.breakTimeBody(breakTime))
+            sendNotification(
+              locale.notifications.breakTime,
+              locale.notifications.breakTimeBody(breakTime)
+            )
           }
         }
       } else {
@@ -99,7 +113,17 @@ const usePomodoro = () => {
     }, 1000)
 
     return () => clearInterval(interval)
-  }, [isRunning, displayMessage, minutes, breakTime, workTime, seconds, Display, locale, isMuted])
+  }, [
+    isRunning,
+    displayMessage,
+    minutes,
+    breakTime,
+    workTime,
+    seconds,
+    Display,
+    locale,
+    isMuted
+  ])
 
   useEffect(() => {
     localStorage.setItem('workTime', String(workTime))
@@ -180,7 +204,7 @@ const usePomodoro = () => {
     increaseWorkTime,
     decreaseWorkTime,
     increaseBreakTime,
-    decreaseBreakTime,
+    decreaseBreakTime
   }
 }
 

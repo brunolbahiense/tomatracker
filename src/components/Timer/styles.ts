@@ -29,7 +29,12 @@ export const Title = styled.h1`
 export const Divider = styled.div`
   width: 3rem;
   height: 2px;
-  background: linear-gradient(90deg, transparent, ${(props) => props.theme.red}, transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    ${(props) => props.theme.red},
+    transparent
+  );
   border-radius: 2px;
   margin-bottom: 2rem;
 `

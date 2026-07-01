@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tomatracker — Design Preview v2</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #111;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .page-label {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+  }
+
+  .before-after {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 860px;
+  }
+
+  .column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .column-label {
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* OLD design */
+  .old-page {
+    background: #EC443E;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .old-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  .old-timer { font-size: 4.5rem; color: white; font-weight: 400; line-height: 1; }
+  .old-btn {
+    background: #eee;
+    color: #6f6f6e;
+    padding: 0.5rem 1.4rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .old-controls { display: flex; gap: 0.8rem; }
+
+  /* NEW design — Escuro Quente */
+  .new-page {
+    background: radial-gradient(ellipse at 50% 0%, #2a0a0a 0%, #0e0404 100%);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .timer-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 20px;
+    padding: 2.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.04),
+      0 0 60px rgba(214, 55, 49, 0.06);
+    backdrop-filter: blur(8px);
+  }
+
+  .settings-btn {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .phase-label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #D63731;
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+  }
+
+  .timer-display {
+    font-size: 5.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -4px;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .divider {
+    width: 2.5rem;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #D63731, transparent);
+    border-radius: 2px;
+    margin-bottom: 1.8rem;
+  }
+
+  .controls {
+    display: flex;
+    gap: 0.8rem;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #D63731, #EC443E);
+    color: white;
+    padding: 0.7rem 2rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 18px rgba(214, 55, 49, 0.45);
+  }
+
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.45);
+    padding: 0.7rem 2rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .design-label {
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<p class="page-label">Preview do novo design — Tomatracker Timer</p>
+
+<div class="before-after">
+
+  <div class="column">
+    <div class="column-label">Antes</div>
+    <div class="old-page">
+      <div class="old-card">
+        <div style="font-size:0.55rem;color:rgba(255,255,255,0.7);letter-spacing:2px;text-transform:uppercase;">Usando a Técnica Pomodoro</div>
+        <div class="old-timer">25:00</div>
+        <div class="old-controls">
+          <div class="old-btn">INICIAR</div>
+          <div class="old-btn">REINICIAR</div>
+        </div>
+        <div style="margin-top:0.5rem;font-size:0.6rem;color:rgba(255,255,255,0.6);">Foco: 25 min &nbsp;|&nbsp; Pausa: 5 min</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-label">Depois</div>
+    <div class="new-page">
+      <div class="timer-card">
+        <div class="settings-btn">⚙</div>
+        <div class="phase-label">FOCO</div>
+        <div class="timer-display">25:00</div>
+        <div class="divider"></div>
+        <div class="controls">
+          <div class="btn-primary">INICIAR</div>
+          <div class="btn-secondary">REINICIAR</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p class="design-label">Dark Quente · Card Flutuante · Bold · Botão Primário com Glow</p>
+
+</body>
+</html>

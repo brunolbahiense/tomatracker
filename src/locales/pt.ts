@@ -3,10 +3,10 @@ import type { Translations } from './en'
 const pt: Translations = {
   landing: {
     tagline: 'Melhore sua produtividade e faça as coisas acontecerem!',
-    cta: 'Estou Pronto',
+    cta: 'Estou Pronto'
   },
   timerPage: {
-    description: 'Usando a Técnica Pomodoro para melhorar sua produtividade',
+    description: 'Usando a Técnica Pomodoro para melhorar sua produtividade'
   },
   timer: {
     play: 'INICIAR',
@@ -23,7 +23,7 @@ const pt: Translations = {
       increaseWork: 'Aumentar tempo de foco',
       decreaseBreak: 'Diminuir tempo de pausa',
       increaseBreak: 'Aumentar tempo de pausa',
-      muteLabel: 'Alternar som',
+      muteLabel: 'Alternar som'
     },
     motivationalPhrases: [
       'Um pomodoro de cada vez.',
@@ -33,14 +33,14 @@ const pt: Translations = {
       'Pequenos passos, grandes resultados.',
       'Permaneça na zona.',
       'Progresso supera perfeição.',
-      'Seu melhor trabalho acontece agora.',
-    ],
+      'Seu melhor trabalho acontece agora.'
+    ]
   },
   notifications: {
     backToWork: 'De volta ao foco!',
     backToWorkBody: (m: number) => `Concentre-se por ${m} minutos.`,
     breakTime: 'Hora da pausa!',
-    breakTimeBody: (m: number) => `Descanse por ${m} minutos.`,
+    breakTimeBody: (m: number) => `Descanse por ${m} minutos.`
   },
   pomodoroInfo: {
     title: 'A Técnica Pomodoro',
@@ -51,26 +51,28 @@ const pt: Translations = {
         label: '25 min',
         title: 'Foco total',
         description:
-          'Trabalhe em uma única tarefa sem interrupções durante um Pomodoro.',
+          'Trabalhe em uma única tarefa sem interrupções durante um Pomodoro.'
       },
       {
         icon: '☕',
         label: '5 min',
         title: 'Pausa curta',
-        description: 'Levante, respire, descanse a mente antes do próximo ciclo.',
+        description:
+          'Levante, respire, descanse a mente antes do próximo ciclo.'
       },
       {
         icon: '🔁',
         label: '× 4',
         title: 'Repita',
-        description: 'A cada 4 Pomodoros, faça uma pausa longa de 15–30 minutos.',
-      },
-    ],
+        description:
+          'A cada 4 Pomodoros, faça uma pausa longa de 15–30 minutos.'
+      }
+    ]
   },
   footer: {
     madeBy: 'Feito por',
-    name: 'Bruno',
-  },
+    name: 'Bruno'
+  }
 }
 
 export default pt

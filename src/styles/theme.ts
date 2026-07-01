@@ -9,7 +9,7 @@ const theme = {
   blue: '#3B82F6',
   darkBg: '#0e0404',
   darkBgTop: '#2a0a0a',
-  darkBgSection: '#1a0808',
+  darkBgSection: '#1a0808'
 }
 
 export default theme
