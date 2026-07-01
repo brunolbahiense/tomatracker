@@ -1,8 +1,13 @@
+import { useState, useEffect } from 'react'
 import { translations } from 'locales'
 
 const useLocale = () => {
-  const language = typeof navigator !== 'undefined' ? navigator.language : 'en'
-  const localeKey = language.startsWith('pt') ? 'pt' : 'en'
+  const [localeKey, setLocaleKey] = useState<'pt' | 'en'>('en')
+
+  useEffect(() => {
+    setLocaleKey(navigator.language.startsWith('pt') ? 'pt' : 'en')
+  }, [])
+
   return translations[localeKey]
 }
 

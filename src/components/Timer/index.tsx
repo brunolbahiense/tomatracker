@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import useLocale from 'hooks/useLocale'
+import Settings from 'components/Settings'
 import * as S from './styles'
 
 interface TimerProps {
@@ -13,6 +14,12 @@ interface TimerProps {
   ariaCountdown: string
   toggleTimer: () => void
   resetTimer: () => void
+  isMuted: boolean
+  toggleMute: () => void
+  increaseWorkTime: () => void
+  decreaseWorkTime: () => void
+  increaseBreakTime: () => void
+  decreaseBreakTime: () => void
 }
 
 const Timer = ({
@@ -23,7 +30,13 @@ const Timer = ({
   breakTime,
   ariaCountdown,
   toggleTimer,
-  resetTimer
+  resetTimer,
+  isMuted,
+  toggleMute,
+  increaseWorkTime,
+  decreaseWorkTime,
+  increaseBreakTime,
+  decreaseBreakTime
 }: TimerProps) => {
   const locale = useLocale()
   const [phraseIndex, setPhraseIndex] = useState(0)
@@ -40,6 +53,16 @@ const Timer = ({
 
   return (
     <S.Wrapper>
+      <Settings
+        workTime={workTime}
+        breakTime={breakTime}
+        isMuted={isMuted}
+        toggleMute={toggleMute}
+        increaseWorkTime={increaseWorkTime}
+        decreaseWorkTime={decreaseWorkTime}
+        increaseBreakTime={increaseBreakTime}
+        decreaseBreakTime={decreaseBreakTime}
+      />
       <S.PhaseLabel aria-live="polite">
         {displayMessage ? locale.timer.breakLabel : locale.timer.workLabel}
       </S.PhaseLabel>

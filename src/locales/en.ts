@@ -11,6 +11,10 @@ const en = {
     breakLabel: 'Break',
     breakMessage: 'Break time! Chill a little and come back in:',
     settingsTitle: 'Settings',
+    colorsLabel: 'Colors',
+    themeLabel: 'Theme',
+    dark: 'Dark',
+    light: 'Light',
     aria: {
       countdown: (m: number, s: number) =>
         `${m} minutes and ${s} seconds remaining`,

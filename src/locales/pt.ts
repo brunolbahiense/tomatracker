@@ -13,6 +13,10 @@ const pt: Translations = {
     breakLabel: 'Pausa',
     breakMessage: 'Hora da pausa! Relaxe um pouco e volte em:',
     settingsTitle: 'Configurações',
+    colorsLabel: 'Cores',
+    themeLabel: 'Tema',
+    dark: 'Escuro',
+    light: 'Claro',
     aria: {
       countdown: (m: number, s: number) =>
         `${m} minutos e ${s} segundos restantes`,

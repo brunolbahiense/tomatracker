@@ -1,7 +1,9 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import useLocale from 'hooks/useLocale'
+import { useAppTheme } from 'contexts/AppThemeContext'
+import { colorPresets, AccentKey } from 'styles/colorPresets'
 import * as S from './styles'
 
 interface SettingsProps {
@@ -23,27 +25,17 @@ export default function Settings({
   increaseWorkTime,
   decreaseWorkTime,
   increaseBreakTime,
-  decreaseBreakTime
+  decreaseBreakTime,
 }: SettingsProps) {
   const locale = useLocale()
+  const { mode, accent, setMode, setAccent } = useAppTheme()
   const [showSettings, setShowSettings] = useState(false)
-  const settingsRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        settingsRef.current &&
-        !settingsRef.current.contains(event.target as Node)
-      ) {
-        setShowSettings(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
 
   return (
-    <div ref={settingsRef}>
+    <>
+      {showSettings && (
+        <S.Backdrop onClick={() => setShowSettings(false)} />
+      )}
       <S.SettingsButton
         onClick={() => setShowSettings((prev) => !prev)}
         aria-label={locale.timer.settingsTitle}
@@ -84,6 +76,32 @@ export default function Settings({
               +
             </S.ConfigButton>
           </S.ConfigRow>
+          <S.SectionDivider />
+          <S.SectionLabel>{locale.timer.colorsLabel}</S.SectionLabel>
+          <S.ColorRow>
+            {(Object.entries(colorPresets) as [AccentKey, (typeof colorPresets)[AccentKey]][]).map(
+              ([key, preset]) => (
+                <S.ColorSwatch
+                  key={key}
+                  $color={preset.primary}
+                  $selected={accent === key}
+                  onClick={() => setAccent(key)}
+                  aria-label={preset.label}
+                  title={preset.label}
+                />
+              )
+            )}
+          </S.ColorRow>
+          <S.SectionDivider />
+          <S.SectionLabel>{locale.timer.themeLabel}</S.SectionLabel>
+          <S.ModeSwitcher>
+            <S.ModeButton $active={mode === 'dark'} onClick={() => setMode('dark')}>
+              ☾ {locale.timer.dark}
+            </S.ModeButton>
+            <S.ModeButton $active={mode === 'light'} onClick={() => setMode('light')}>
+              ☀ {locale.timer.light}
+            </S.ModeButton>
+          </S.ModeSwitcher>
           <S.MuteRow>
             <S.MuteSwitch
               $isMuted={isMuted}
@@ -104,6 +122,6 @@ export default function Settings({
           </S.MuteRow>
         </S.SettingsPanel>
       )}
-    </div>
+    </>
   )
 }
