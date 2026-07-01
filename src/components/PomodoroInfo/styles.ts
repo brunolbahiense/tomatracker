@@ -23,7 +23,7 @@ export const HeadingTitle = styled.h2`
 `
 
 export const HeadingSubtitle = styled.p`
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.35);
 `
 
@@ -88,14 +88,14 @@ export const PillarHighlight = styled.div`
 `
 
 export const PillarTitle = styled.h3`
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: ${(props) => props.theme.white};
   letter-spacing: -0.3px;
 `
 
 export const PillarDescription = styled.p`
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.4);
   line-height: 1.6;
 `
