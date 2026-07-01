@@ -11,7 +11,7 @@ export const SettingsButton = styled.button`
   background: rgba(214, 55, 49, 0.1);
   border: 1px solid rgba(214, 55, 49, 0.3);
   color: ${(props) => props.theme.red};
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   line-height: 1;
   cursor: pointer;
   display: flex;
