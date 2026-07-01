@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 `
 
 export const PhaseLabel = styled.div`
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   color: ${(props) => props.theme.red};
@@ -77,7 +77,7 @@ export const ControlButton = styled.button<ControlButtonProps>`
 `
 
 export const TimeInfo = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.3);
   margin-top: 1.2rem;
   letter-spacing: 0.05rem;
@@ -89,7 +89,7 @@ export const TimeInfo = styled.p`
 `
 
 export const MotivationalText = styled.p`
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   color: rgba(255, 255, 255, 0.3);
   font-style: italic;
   text-align: center;

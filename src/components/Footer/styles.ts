@@ -11,7 +11,7 @@ export const Footer = styled.footer`
 `
 
 export const Name = styled.span`
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.35);
 
   strong {
@@ -32,7 +32,7 @@ export const Links = styled.div`
 `
 
 export const Link = styled.a`
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.3);
   letter-spacing: 0.5px;
   text-transform: uppercase;
