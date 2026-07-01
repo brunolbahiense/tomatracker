@@ -15,18 +15,20 @@ export const TasksButton = styled.button<ActiveProps>`
   top: 1.5rem;
   left: 1.5rem;
   z-index: 1000;
-  width: 3.6rem;
   height: 3.6rem;
-  border-radius: 50%;
+  padding: 0 1.4rem 0 1.1rem;
+  border-radius: 2rem;
   background: ${(props) => (props.$active ? props.theme.red : props.theme.accentSoft)};
   border: 1px solid ${(props) => props.theme.accentGlow};
   color: ${(props) => (props.$active ? props.theme.panelBg : props.theme.red)};
-  font-size: 2rem;
-  line-height: 1;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.6rem;
   box-shadow: 0 0 12px ${(props) => props.theme.accentGlow};
   transition:
     transform 0.2s ease,
@@ -34,9 +36,14 @@ export const TasksButton = styled.button<ActiveProps>`
     color 0.2s ease;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     background: ${(props) => (props.$active ? props.theme.red : props.theme.accentHover)};
   }
+`
+
+export const ButtonIcon = styled.span`
+  font-size: 1.8rem;
+  line-height: 1;
 `
 
 export const TasksDrawer = styled.div`

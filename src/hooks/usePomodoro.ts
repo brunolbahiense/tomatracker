@@ -22,17 +22,30 @@ const sendNotification = (title: string, body: string) => {
   }
 }
 
-const playSound = () => {
+// O AudioContext é compartilhado e destravado num gesto do usuário (play ou
+// toggle de som) — criado dentro do setInterval ele nasce suspenso e nunca toca.
+let audioContext: AudioContext | null = null
+
+const getAudioContext = () => {
+  if (typeof window === 'undefined') return null
+
   const AudioContextClass =
-    typeof window !== 'undefined'
-      ? window.AudioContext ||
-        (window as Window & { webkitAudioContext?: typeof AudioContext })
-          .webkitAudioContext
-      : undefined
+    window.AudioContext ||
+    (window as Window & { webkitAudioContext?: typeof AudioContext })
+      .webkitAudioContext
 
-  if (!AudioContextClass) return
+  if (!AudioContextClass) return null
 
-  const context = new AudioContextClass()
+  if (!audioContext) audioContext = new AudioContextClass()
+  if (audioContext.state === 'suspended') audioContext.resume()
+
+  return audioContext
+}
+
+const playSound = () => {
+  const context = getAudioContext()
+  if (!context) return
+
   const oscillator = context.createOscillator()
   const gainNode = context.createGain()
 
@@ -131,6 +144,7 @@ const usePomodoro = () => {
       return
     }
     await requestNotificationPermission()
+    getAudioContext()
     endTimeRef.current = Date.now() + secondsLeft * 1000
     setIsRunning(true)
   }
@@ -146,6 +160,7 @@ const usePomodoro = () => {
     const next = !isMuted
     setIsMuted(next)
     localStorage.setItem('isMuted', String(next))
+    if (!next) playSound()
   }
 
   const restartCountdown = (nextMinutes: number) => {

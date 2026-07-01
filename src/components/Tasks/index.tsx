@@ -88,9 +88,9 @@ export default function Tasks({
         ref={buttonRef}
         onClick={() => setOpen((prev) => !prev)}
         $active={open}
-        aria-label={locale.tasks.openLabel}
       >
-        ✓
+        <S.ButtonIcon aria-hidden="true">✓</S.ButtonIcon>
+        {locale.tasks.openLabel}
       </S.TasksButton>
       {open && (
         <S.TasksDrawer ref={drawerRef}>

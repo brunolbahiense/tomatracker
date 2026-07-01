@@ -59,9 +59,9 @@ export default function Settings({
       <S.SettingsButton
         ref={buttonRef}
         onClick={() => setShowSettings((prev) => !prev)}
-        aria-label={locale.timer.settingsTitle}
       >
-        ⚙
+        <S.ButtonIcon aria-hidden="true">⚙</S.ButtonIcon>
+        {locale.timer.settingsTitle}
       </S.SettingsButton>
       {showSettings && (
         <S.SettingsPanel ref={panelRef}>
@@ -133,12 +133,13 @@ export default function Settings({
             </S.ModeButton>
           </S.ModeSwitcher>
           <S.MuteRow>
+            <S.MuteLabel>{locale.timer.soundLabel}</S.MuteLabel>
             <S.MuteSwitch
               $isMuted={isMuted}
               onClick={toggleMute}
               aria-label={locale.timer.aria.muteLabel}
               role="switch"
-              aria-checked={isMuted}
+              aria-checked={!isMuted}
               tabIndex={0}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {

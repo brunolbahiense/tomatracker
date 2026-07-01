@@ -13,6 +13,7 @@ const pt: Translations = {
     breakLabel: 'Pausa',
     breakMessage: 'Hora da pausa! Relaxe um pouco e volte em:',
     settingsTitle: 'Configurações',
+    soundLabel: 'Som',
     colorsLabel: 'Cores',
     themeLabel: 'Tema',
     dark: 'Escuro',
