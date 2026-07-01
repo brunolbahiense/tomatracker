@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import useLocale from 'hooks/useLocale'
 import type { Task } from 'hooks/useTasks'
 import * as S from './styles'
@@ -16,12 +16,27 @@ export default function Tasks({
   taskList,
   addTask,
   toggleTask,
-  deleteTask,
+  deleteTask
 }: TasksProps) {
   const locale = useLocale()
   const [open, setOpen] = useState(false)
   const [inputValue, setInputValue] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
+  const drawerRef = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    if (!open) return
+    const handlePointerDown = (e: PointerEvent) => {
+      if (
+        drawerRef.current?.contains(e.target as Node) ||
+        buttonRef.current?.contains(e.target as Node)
+      ) return
+      setOpen(false)
+    }
+    document.addEventListener('pointerdown', handlePointerDown)
+    return () => document.removeEventListener('pointerdown', handlePointerDown)
+  }, [open])
 
   const activeTasks = taskList.filter((t) => !t.done)
   const completedTasks = taskList.filter((t) => t.done)
@@ -46,7 +61,7 @@ export default function Tasks({
       `${locale.tasks.completedLabel}:`,
       ...completedTasks.map((t) => `✓ ${t.text} — ${t.completedAt}`),
       '',
-      locale.tasks.reportTotal(completedTasks.length),
+      locale.tasks.reportTotal(completedTasks.length)
     ]
     const blob = new Blob([lines.join('\n')], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
@@ -61,8 +76,8 @@ export default function Tasks({
 
   return (
     <>
-      {open && <S.Backdrop onClick={() => setOpen(false)} />}
       <S.TasksButton
+        ref={buttonRef}
         onClick={() => setOpen((prev) => !prev)}
         $active={open}
         aria-label={locale.tasks.openLabel}
@@ -70,7 +85,7 @@ export default function Tasks({
         ✓
       </S.TasksButton>
       {open && (
-        <S.TasksDrawer>
+        <S.TasksDrawer ref={drawerRef}>
           <S.InputRow>
             <S.TaskInput
               ref={inputRef}
