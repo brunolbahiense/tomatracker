@@ -1,4 +1,9 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const dividerPulse = keyframes`
+  0%, 100% { width: 3rem; opacity: 0.7; }
+  50%       { width: 5rem; opacity: 1; }
+`
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -26,7 +31,6 @@ export const Title = styled.div`
 `
 
 export const Divider = styled.div`
-  width: 3rem;
   height: 2px;
   background: linear-gradient(
     90deg,
@@ -36,6 +40,7 @@ export const Divider = styled.div`
   );
   border-radius: 2px;
   margin-bottom: 2rem;
+  animation: ${dividerPulse} 2.5s ease-in-out infinite;
 `
 
 export const Controls = styled.div`
@@ -64,6 +69,11 @@ export const ControlButton = styled.button<ControlButtonProps>`
     background: linear-gradient(135deg, ${props.theme.red}, ${props.theme.lightRed});
     color: ${props.theme.white};
     box-shadow: 0 4px 18px rgba(214, 55, 49, 0.45);
+
+    &:hover {
+      box-shadow: 0 4px 24px rgba(214, 55, 49, 0.65), 0 0 40px rgba(214, 55, 49, 0.3);
+      transform: scale(1.04);
+    }
   `
       : `
     background: rgba(255, 255, 255, 0.07);
