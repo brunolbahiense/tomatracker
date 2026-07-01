@@ -32,6 +32,7 @@ export const Title = styled.div`
 
 export const Divider = styled.div`
   height: 2px;
+  width: 3rem;
   background: linear-gradient(
     90deg,
     transparent,
@@ -79,11 +80,11 @@ export const ControlButton = styled.button<ControlButtonProps>`
     background: rgba(255, 255, 255, 0.07);
     color: rgba(255, 255, 255, 0.45);
     border: 1px solid rgba(255, 255, 255, 0.1);
-  `}
 
-  &:hover {
-    transform: scale(1.05);
-  }
+    &:hover {
+      transform: scale(1.05);
+    }
+  `}
 `
 
 export const TimeInfo = styled.p`
