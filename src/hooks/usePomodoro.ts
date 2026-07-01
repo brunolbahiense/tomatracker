@@ -14,6 +14,11 @@ const getStoredBreakTime = () => {
   return Number(localStorage.getItem('breakTime')) || DEFAULT_BREAK_TIME
 }
 
+const getStoredIsMuted = () => {
+  if (typeof window === 'undefined') return false
+  return localStorage.getItem('isMuted') === 'true'
+}
+
 const requestNotificationPermission = async () => {
   if (typeof Notification !== 'undefined' && Notification.permission === 'default') {
     await Notification.requestPermission()
@@ -57,10 +62,7 @@ const usePomodoro = () => {
   const [seconds, setSeconds] = useState(0)
   const [displayMessage, setDisplayMessage] = useState(false)
   const [isRunning, setIsRunning] = useState(false)
-  const [isMuted, setIsMuted] = useState(() => {
-    if (typeof window === 'undefined') return false
-    return localStorage.getItem('isMuted') === 'true'
-  })
+  const [isMuted, setIsMuted] = useState(getStoredIsMuted)
 
   const locale = useLocale()
 
