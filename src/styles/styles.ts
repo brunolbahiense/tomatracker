@@ -31,7 +31,7 @@ export const Frame = styled.main`
 `
 
 export const SiteTitle = styled.h1`
-  font-size: 2.2rem;
+  font-size: 5.2rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.9);
   letter-spacing: -1px;
