@@ -39,7 +39,12 @@ export const Pillars = styled.div`
   }
 `
 
-export const Pillar = styled.div`
+interface PillarProps {
+  $visible?: boolean
+  $index?: number
+}
+
+export const Pillar = styled.div<PillarProps>`
   flex: 1;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.07);
@@ -50,6 +55,10 @@ export const Pillar = styled.div`
   align-items: center;
   gap: 0.6rem;
   text-align: center;
+  opacity: ${(props) => (props.$visible ? 1 : 0)};
+  transform: ${(props) => (props.$visible ? 'translateY(0)' : 'translateY(20px)')};
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition-delay: ${(props) => (props.$index ?? 0) * 0.12}s;
 
   @media only screen and (max-width: 768px) {
     width: 90%;

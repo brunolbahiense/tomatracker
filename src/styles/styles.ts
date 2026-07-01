@@ -1,4 +1,14 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const fadeUp = keyframes`
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+`
+
+const float = keyframes`
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+`
 
 export const Frame = styled.main`
   position: relative;
@@ -17,6 +27,7 @@ export const Frame = styled.main`
     0 0 80px rgba(214, 55, 49, 0.07);
   backdrop-filter: blur(8px);
   margin-top: 3rem;
+  animation: ${fadeUp} 0.6s ease-out 0.15s both, ${float} 4s ease-in-out 0.75s infinite;
 
   @media only screen and (max-width: 768px) {
     width: 90%;
@@ -30,6 +41,7 @@ export const SiteTitle = styled.h1`
   color: rgba(255, 255, 255, 0.9);
   letter-spacing: -1px;
   margin-bottom: 1.5rem;
+  animation: ${fadeUp} 0.6s ease-out both;
 
   span {
     color: ${(props) => props.theme.red};
