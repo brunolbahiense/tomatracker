@@ -33,5 +33,5 @@ yarn-error.log*
 # vercel
 .vercel
 
-.claude
-.superpowers
+/.claude
+/.superpowers
