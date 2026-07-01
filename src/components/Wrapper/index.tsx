@@ -1,7 +1,9 @@
+'use client'
+
 import * as S from './styles'
 
 export interface WrapperProps {
-  background?: 'blue' | 'red'
+  background?: 'blue' | 'red' | 'dark'
   children?: React.ReactNode
 }
 const Wrapper = ({ background = 'red', ...props }: WrapperProps) => {

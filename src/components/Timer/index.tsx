@@ -1,81 +1,67 @@
-import { useEffect, useState } from 'react'
+'use client'
+
+import { useState, useEffect, useRef } from 'react'
+import useLocale from 'hooks/useLocale'
 import * as S from './styles'
 
 interface TimerProps {
-  time: number
+  Display: string
+  displayMessage: boolean
+  isRunning: boolean
+  workTime: number
   breakTime: number
+  ariaCountdown: string
+  toggleTimer: () => void
+  resetTimer: () => void
 }
 
-const Timer = ({ time, breakTime }: TimerProps) => {
-  const [minutes, setMinutes] = useState(time)
-  const [seconds, setSeconds] = useState(0)
-  const [pause, setPause] = useState(true)
-  const [sound, setSound] = useState(true)
-  const [displayMensage, setDisplayMensage] = useState(false)
+const Timer = ({
+  Display,
+  displayMessage,
+  isRunning,
+  workTime,
+  breakTime,
+  ariaCountdown,
+  toggleTimer,
+  resetTimer
+}: TimerProps) => {
+  const locale = useLocale()
+  const [phraseIndex, setPhraseIndex] = useState(0)
+  const wasRunningRef = useRef(false)
 
-  const TimerMinutes = minutes < 10 ? `0${minutes}` : minutes
-  const TimerSeconds = seconds < 10 ? `0${seconds}` : seconds
-
-  const reload = () => {
-    const seconds = 0
-    setPause(true)
-    setMinutes(25)
-    setSeconds(seconds)
-  }
   useEffect(() => {
-    const Display = `${TimerMinutes}:${TimerSeconds}`
-    document.title = `${Display} - Tomatracker`
-    const interval = setInterval(() => {
-
-      if(!pause){
-        if (seconds === 0) {
-          if (minutes !== 0) {
-            setSeconds(59)
-            setMinutes(minutes - 1)
-          }else{
-            const minutes = displayMensage ? 24 : breakTime
-            const seconds = 0
-            setSeconds(seconds)
-            setMinutes(minutes)
-            setDisplayMensage(!displayMensage)
-          }
-        }
-        if(seconds !== 0) {
-          const left = seconds - 1
-          setSeconds(left)
-        }
-      }
-      console.log('interval:', interval)
-      clearInterval(interval)
-    }, 1000)
-  }, [displayMensage, minutes, breakTime, TimerMinutes,TimerSeconds ,pause])
+    if (isRunning && !wasRunningRef.current) {
+      setPhraseIndex(
+        (prev) => (prev + 1) % locale.timer.motivationalPhrases.length
+      )
+    }
+    wasRunningRef.current = isRunning
+  }, [isRunning, locale.timer.motivationalPhrases.length])
 
   return (
-    <>
-      <S.Message>
-        {displayMensage && (
-          <div>Break time! Chill a little and come back in:</div>
-        )}
-      </S.Message>
-      <S.Title>{`${TimerMinutes}:${TimerSeconds}`}</S.Title>
-      <S.Actions>
-        <img
-          src={`/img/actions/${sound ? 'sound' : 'mute'}.svg`}
-          alt={`${sound ? 'sound' : 'mute'}`}
-          onClick={() => setSound(!sound)}
-        />
-        <img
-          src={`/img/actions/${pause ? 'play' : 'pause'}.svg`}
-          alt={`${pause ? 'play' : 'pause'}`}
-          onClick={() => setPause(!pause)}
-        />
-         <img
-          src={`/img/actions/reload.svg`}
-          alt="reload button"
-          onClick={reload}
-        />
-      </S.Actions>
-    </>
+    <S.Wrapper>
+      <S.PhaseLabel aria-live="polite">
+        {displayMessage ? locale.timer.breakLabel : locale.timer.workLabel}
+      </S.PhaseLabel>
+      <S.Title aria-label={ariaCountdown}>{Display}</S.Title>
+      <S.Divider />
+      <S.Controls>
+        <S.ControlButton $primary onClick={toggleTimer}>
+          {isRunning ? locale.timer.pause : locale.timer.play}
+        </S.ControlButton>
+        <S.ControlButton onClick={resetTimer}>
+          {locale.timer.reset}
+        </S.ControlButton>
+      </S.Controls>
+      <S.TimeInfo>
+        {locale.timer.workLabel}: <span>{workTime} min</span>
+        {' · '}
+        {locale.timer.breakLabel}: <span>{breakTime} min</span>
+      </S.TimeInfo>
+      <S.MotivationalText>
+        {locale.timer.motivationalPhrases[phraseIndex]}
+      </S.MotivationalText>
+    </S.Wrapper>
   )
 }
 

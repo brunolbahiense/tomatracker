@@ -1,0 +1,72 @@
+<h2>Como o timer se encaixa na página?</h2>
+<p class="subtitle">A estrutura geral da tela do timer — o que envolve os controles</p>
+
+<div class="cards">
+
+  <!-- Option A: Full Bleed -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:linear-gradient(160deg,#110505 0%,#1e0c0c 100%);border-radius:12px;padding:20px;min-height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;position:relative;">
+        <div style="position:absolute;top:10px;right:10px;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:9px;color:rgba(255,255,255,0.4);">⚙</div>
+        <div style="font-size:8px;text-transform:uppercase;letter-spacing:4px;color:#D63731;font-weight:500;margin-bottom:4px;">FOCO</div>
+        <div style="font-size:54px;font-weight:700;color:#fff;letter-spacing:-2px;line-height:1;">25:00</div>
+        <div style="display:flex;gap:8px;margin-top:10px;">
+          <div style="background:linear-gradient(135deg,#D63731,#EC443E);color:white;padding:7px 18px;border-radius:6px;font-size:9px;font-weight:700;letter-spacing:1px;box-shadow:0 4px 14px rgba(214,55,49,0.4);">INICIAR</div>
+          <div style="background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.45);padding:7px 18px;border-radius:6px;font-size:9px;font-weight:700;border:1px solid rgba(255,255,255,0.1);">REINICIAR</div>
+        </div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:rgba(255,255,255,0.04);border-radius:0 0 12px 12px;"></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Full Bleed</h3>
+      <p>O fundo escuro toma a página inteira. Timer centralizado sem moldura. Imersivo e limpo — sem box, só os elementos.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Floating Card -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:linear-gradient(160deg,#110505 0%,#1e0c0c 100%);border-radius:12px;padding:16px;min-height:230px;display:flex;align-items:center;justify-content:center;">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px 28px;display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;position:relative;box-shadow:0 8px 32px rgba(0,0,0,0.4),0 0 0 1px rgba(255,255,255,0.05);">
+          <div style="position:absolute;top:10px;right:10px;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:9px;color:rgba(255,255,255,0.4);">⚙</div>
+          <div style="font-size:8px;text-transform:uppercase;letter-spacing:4px;color:#D63731;font-weight:500;">FOCO</div>
+          <div style="font-size:50px;font-weight:700;color:#fff;letter-spacing:-2px;line-height:1;">25:00</div>
+          <div style="display:flex;gap:8px;margin-top:8px;">
+            <div style="background:linear-gradient(135deg,#D63731,#EC443E);color:white;padding:7px 18px;border-radius:6px;font-size:9px;font-weight:700;letter-spacing:1px;box-shadow:0 4px 14px rgba(214,55,49,0.35);">INICIAR</div>
+            <div style="background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.45);padding:7px 18px;border-radius:6px;font-size:9px;font-weight:700;border:1px solid rgba(255,255,255,0.1);">REINICIAR</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Card Flutuante</h3>
+      <p>Fundo escuro na página + card levemente destacado (glassmorphism sutil). Timer tem "profundidade". Parece um painel.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Glow Ring -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:linear-gradient(160deg,#110505 0%,#1e0c0c 100%);border-radius:12px;padding:16px;min-height:230px;display:flex;align-items:center;justify-content:center;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;padding:24px;">
+          <div style="position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse at center, rgba(214,55,49,0.12) 0%, transparent 70%);pointer-events:none;"></div>
+          <div style="position:absolute;top:10px;right:0px;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:9px;color:rgba(255,255,255,0.4);">⚙</div>
+          <div style="font-size:8px;text-transform:uppercase;letter-spacing:4px;color:#D63731;font-weight:500;">FOCO</div>
+          <div style="font-size:54px;font-weight:700;color:#fff;letter-spacing:-2px;line-height:1;text-shadow:0 0 60px rgba(214,55,49,0.4);">25:00</div>
+          <div style="width:60px;height:2px;background:linear-gradient(90deg,transparent,#D63731,transparent);border-radius:2px;margin:2px 0;"></div>
+          <div style="display:flex;gap:8px;margin-top:6px;">
+            <div style="background:linear-gradient(135deg,#D63731,#EC443E);color:white;padding:7px 18px;border-radius:6px;font-size:9px;font-weight:700;letter-spacing:1px;box-shadow:0 4px 14px rgba(214,55,49,0.4);">INICIAR</div>
+            <div style="background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.45);padding:7px 18px;border-radius:6px;font-size:9px;font-weight:700;border:1px solid rgba(255,255,255,0.1);">REINICIAR</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Glow Radial</h3>
+      <p>Full bleed + aura vermelha ao redor dos números. Sem caixa, mas com foco visual forte. Mais dramático.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:1rem;">Clique pra selecionar ou me diz no terminal.</p>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tomatracker — Design Preview</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #111;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .page-label {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  /* Page background with aura */
+  .page-bg {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .page-bg::before {
+    content: '';
+    position: absolute;
+    inset: -60px;
+    background: radial-gradient(ellipse at 50% 50%, rgba(214, 55, 49, 0.12) 0%, transparent 65%);
+    pointer-events: none;
+    border-radius: 50%;
+  }
+
+  /* Floating card */
+  .timer-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 20px;
+    padding: 3rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.04),
+      0 0 80px rgba(214, 55, 49, 0.07);
+    backdrop-filter: blur(8px);
+  }
+
+  /* Settings button */
+  .settings-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+  }
+
+  /* Phase label */
+  .phase-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #D63731;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+
+  /* Timer digits */
+  .timer-display {
+    font-size: 6rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -4px;
+    line-height: 1;
+    margin-bottom: 0.6rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Separator line */
+  .divider {
+    width: 3rem;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #D63731, transparent);
+    border-radius: 2px;
+    margin-bottom: 2rem;
+  }
+
+  /* Break message (shown in break mode) */
+  .break-msg {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+  }
+
+  /* Controls */
+  .controls {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #D63731, #EC443E);
+    color: white;
+    padding: 0.75rem 2.2rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 18px rgba(214, 55, 49, 0.45);
+    cursor: pointer;
+  }
+
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.45);
+    padding: 0.75rem 2.2rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+  }
+
+  /* Comparison toggle */
+  .toggle-bar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .toggle-btn {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 0.4rem 1.2rem;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  .toggle-btn.active {
+    background: rgba(214,55,49,0.2);
+    color: #EC443E;
+    border-color: rgba(214,55,49,0.3);
+  }
+
+  .design-label {
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .before-after {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 860px;
+  }
+
+  .column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column-label {
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 1rem;
+  }
+
+  /* OLD design replica */
+  .old-page {
+    background: #EC443E;
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .old-card {
+    background: #EC443E;
+    border-radius: 5px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  .old-timer { font-size: 4rem; color: white; font-weight: 400; }
+  .old-btn {
+    background: #eee;
+    color: #6f6f6e;
+    padding: 0.5rem 1.2rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .old-controls { display: flex; gap: 0.8rem; }
+</style>
+</head>
+<body>
+
+<p class="page-label">Preview do novo design — Tomatracker Timer</p>
+
+<div class="before-after">
+
+  <!-- BEFORE -->
+  <div class="column">
+    <div class="column-label">Antes</div>
+    <div class="old-page">
+      <div class="old-card">
+        <div style="font-size:0.6rem;color:rgba(255,255,255,0.7);letter-spacing:2px;text-transform:uppercase;">Usando a Técnica Pomodoro</div>
+        <div class="old-timer">25:00</div>
+        <div class="old-controls">
+          <div class="old-btn">INICIAR</div>
+          <div class="old-btn">REINICIAR</div>
+        </div>
+        <div style="margin-top:0.5rem;font-size:0.65rem;color:rgba(255,255,255,0.6);">Foco: 25 min &nbsp;|&nbsp; Pausa: 5 min</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AFTER -->
+  <div class="column">
+    <div class="column-label">Depois</div>
+    <div style="background: linear-gradient(135deg,#111 0%,#1a0808 50%,#111 100%); border-radius:12px; padding: 1.5rem; width:100%; display:flex; align-items:center; justify-content:center; position:relative;">
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%, rgba(214,55,49,0.1) 0%, transparent 65%);border-radius:12px;pointer-events:none;"></div>
+      <div class="timer-card" style="z-index:1;">
+        <div class="settings-btn">⚙</div>
+        <div class="phase-label">FOCO</div>
+        <div class="timer-display">25:00</div>
+        <div class="divider"></div>
+        <div class="controls">
+          <div class="btn-primary">INICIAR</div>
+          <div class="btn-secondary">REINICIAR</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p class="design-label">Dark · Card Flutuante · Bold · Aura Sutil · Botão Primário com Glow</p>
+
+<script>
+// Inject helper if available
+</script>
+</body>
+</html>
