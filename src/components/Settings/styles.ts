@@ -5,13 +5,14 @@ export const SettingsButton = styled.button`
   top: 1.2rem;
   right: 1.2rem;
   z-index: 100;
-  width: 2.6rem;
-  height: 2.6rem;
+  width: 3.6rem;
+  height: 3.6rem;
   border-radius: 50%;
   background: rgba(214, 55, 49, 0.1);
   border: 1px solid rgba(214, 55, 49, 0.3);
   color: ${(props) => props.theme.red};
-  font-size: 1.1rem;
+  font-size: 3rem;
+  line-height: 1;
   cursor: pointer;
   display: flex;
   align-items: center;
