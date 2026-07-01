@@ -68,6 +68,15 @@ const en = {
   footer: {
     madeBy: 'Made by',
     name: 'Bruno'
+  },
+  tasks: {
+    openLabel: 'Tasks',
+    inputPlaceholder: 'New task...',
+    completedLabel: 'COMPLETED',
+    downloadButton: '↓ Download report',
+    reportTitle: 'Tomatracker — Task Report',
+    reportTotal: (n: number) => `Total: ${n} task${n === 1 ? '' : 's'}`,
+    deleteLabel: 'Delete task',
   }
 }
 
