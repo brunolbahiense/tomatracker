@@ -1,12 +1,14 @@
 'use client'
 
 import usePomodoro from 'hooks/usePomodoro'
+import useTasks from 'hooks/useTasks'
 import * as S from 'styles/styles'
 import PomodoroInfo from 'components/PomodoroInfo'
 import Wrapper from 'components/Wrapper'
 import Footer from 'components/Footer'
 import Timer from 'components/Timer'
 import Settings from 'components/Settings'
+import Tasks from 'components/Tasks'
 
 export default function Home() {
   const {
@@ -26,8 +28,16 @@ export default function Home() {
     decreaseBreakTime
   } = usePomodoro()
 
+  const { taskList, addTask, toggleTask, deleteTask } = useTasks()
+
   return (
     <>
+      <Tasks
+        taskList={taskList}
+        addTask={addTask}
+        toggleTask={toggleTask}
+        deleteTask={deleteTask}
+      />
       <Settings
         workTime={workTime}
         breakTime={breakTime}
