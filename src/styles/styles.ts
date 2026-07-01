@@ -5,11 +5,6 @@ const fadeUp = keyframes`
   to   { opacity: 1; transform: translateY(0); }
 `
 
-const float = keyframes`
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-6px); }
-`
-
 export const Frame = styled.main`
   position: relative;
   background: rgba(255, 255, 255, 0.04);
@@ -27,9 +22,7 @@ export const Frame = styled.main`
     0 0 80px rgba(214, 55, 49, 0.07);
   backdrop-filter: blur(8px);
   margin-top: 3rem;
-  animation:
-    ${fadeUp} 0.6s ease-out 0.15s both,
-    ${float} 4s ease-in-out 0.75s infinite;
+  animation: ${fadeUp} 0.6s ease-out 0.15s both;
 
   @media only screen and (max-width: 768px) {
     width: 90%;

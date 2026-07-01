@@ -150,8 +150,9 @@ export const ConfigButton = styled.button`
 // position: absolute anchors to S.Frame (nearest positioned ancestor), floating above the card
 export const SettingsButton = styled.button`
   position: absolute;
-  top: -1.4rem;
-  right: 1rem;
+  top: -1.5rem;
+  right: 1.2rem;
+  z-index: 10;
   width: 2.6rem;
   height: 2.6rem;
   border-radius: 50%;
