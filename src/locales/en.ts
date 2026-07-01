@@ -1,10 +1,10 @@
 const en = {
   landing: {
     tagline: 'Improve your productivity and get things done!',
-    cta: "I'm Ready",
+    cta: "I'm Ready"
   },
   timerPage: {
-    description: 'Using The Pomodoro Technique to improve your productivity',
+    description: 'Using The Pomodoro Technique to improve your productivity'
   },
   timer: {
     play: 'PLAY',
@@ -21,7 +21,7 @@ const en = {
       increaseWork: 'Increase work time',
       decreaseBreak: 'Decrease break time',
       increaseBreak: 'Increase break time',
-      muteLabel: 'Toggle sound',
+      muteLabel: 'Toggle sound'
     },
     motivationalPhrases: [
       'One pomodoro at a time.',
@@ -31,14 +31,14 @@ const en = {
       'Small steps, big results.',
       'Stay in the zone.',
       'Progress over perfection.',
-      'Your best work happens now.',
-    ],
+      'Your best work happens now.'
+    ]
   },
   notifications: {
     backToWork: 'Back to work!',
     backToWorkBody: (m: number) => `Focus for ${m} minutes.`,
     breakTime: 'Break time!',
-    breakTimeBody: (m: number) => `Relax for ${m} minutes.`,
+    breakTimeBody: (m: number) => `Relax for ${m} minutes.`
   },
   pomodoroInfo: {
     title: 'The Pomodoro Technique',
@@ -48,26 +48,26 @@ const en = {
         icon: '🍅',
         label: '25 min',
         title: 'Full Focus',
-        description: 'Work on one task without interruption for one Pomodoro.',
+        description: 'Work on one task without interruption for one Pomodoro.'
       },
       {
         icon: '☕',
         label: '5 min',
         title: 'Short Break',
-        description: 'Stand up, breathe, rest your mind before the next cycle.',
+        description: 'Stand up, breathe, rest your mind before the next cycle.'
       },
       {
         icon: '🔁',
         label: '× 4',
         title: 'Repeat',
-        description: 'After 4 Pomodoros, take a longer 15–30 min break.',
-      },
-    ],
+        description: 'After 4 Pomodoros, take a longer 15–30 min break.'
+      }
+    ]
   },
   footer: {
     madeBy: 'Made by',
-    name: 'Bruno',
-  },
+    name: 'Bruno'
+  }
 }
 
 export type Translations = typeof en
