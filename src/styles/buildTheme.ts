@@ -6,7 +6,7 @@ function hexToRgb(hex: string): [number, number, number] {
   return [
     parseInt(hex.slice(1, 3), 16),
     parseInt(hex.slice(3, 5), 16),
-    parseInt(hex.slice(5, 7), 16),
+    parseInt(hex.slice(5, 7), 16)
   ]
 }
 
@@ -22,7 +22,11 @@ function blendWithBlack(hex: string, ratio: number): string {
 
 function blendWithWhite(hex: string, ratio: number): string {
   const [r, g, b] = hexToRgb(hex)
-  return toHex(255 + (r - 255) * ratio, 255 + (g - 255) * ratio, 255 + (b - 255) * ratio)
+  return toHex(
+    255 + (r - 255) * ratio,
+    255 + (g - 255) * ratio,
+    255 + (b - 255) * ratio
+  )
 }
 
 function hexToRgba(hex: string, alpha: number): string {
@@ -40,7 +44,7 @@ export function buildTheme(mode: ThemeMode, accent: AccentKey) {
     accentShadow: hexToRgba(primary, 0.45),
     accentHoverGlow: hexToRgba(primary, 0.65),
     accentSoft: hexToRgba(primary, 0.1),
-    accentHover: hexToRgba(primary, 0.18),
+    accentHover: hexToRgba(primary, 0.18)
   }
 
   if (mode === 'light') {
@@ -62,7 +66,7 @@ export function buildTheme(mode: ThemeMode, accent: AccentKey) {
       borderWeak: 'rgba(0,0,0,0.06)',
       borderMid: 'rgba(0,0,0,0.1)',
       textMuted: 'rgba(0,0,0,0.4)',
-      textFaint: 'rgba(0,0,0,0.2)',
+      textFaint: 'rgba(0,0,0,0.2)'
     }
   }
 
@@ -76,7 +80,7 @@ export function buildTheme(mode: ThemeMode, accent: AccentKey) {
     blue: '#3B82F6',
     darkBg: blendWithBlack(primary, 0.06),
     darkBgTop: blendWithBlack(primary, 0.16),
-    darkBgSection: blendWithBlack(primary, 0.10),
+    darkBgSection: blendWithBlack(primary, 0.1),
     darkBgFooter: blendWithBlack(primary, 0.04),
     panelBg: '#FFFFFF',
     surfaceWeak: 'rgba(255,255,255,0.03)',
@@ -84,6 +88,6 @@ export function buildTheme(mode: ThemeMode, accent: AccentKey) {
     borderWeak: 'rgba(255,255,255,0.05)',
     borderMid: 'rgba(255,255,255,0.09)',
     textMuted: 'rgba(255,255,255,0.3)',
-    textFaint: 'rgba(255,255,255,0.15)',
+    textFaint: 'rgba(255,255,255,0.15)'
   }
 }

@@ -82,7 +82,7 @@ const pt: Translations = {
     reportTitle: 'Tomatracker — Relatório de tarefas',
     reportTotal: (n: number) => `Total: ${n} tarefa${n === 1 ? '' : 's'}`,
     deleteLabel: 'Excluir tarefa',
-    addLabel: 'Adicionar tarefa',
+    addLabel: 'Adicionar tarefa'
   }
 }
 

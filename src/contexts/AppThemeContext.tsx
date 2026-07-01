@@ -1,6 +1,12 @@
 'use client'
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode
+} from 'react'
 import { ThemeProvider } from 'styled-components'
 import { AccentKey } from 'styles/colorPresets'
 import { ThemeMode, buildTheme } from 'styles/buildTheme'
@@ -16,7 +22,7 @@ const AppThemeContext = createContext<AppThemeContextValue>({
   mode: 'dark',
   accent: 'tomato',
   setMode: () => {},
-  setAccent: () => {},
+  setAccent: () => {}
 })
 
 export function AppThemeProvider({ children }: { children: ReactNode }) {
@@ -27,7 +33,8 @@ export function AppThemeProvider({ children }: { children: ReactNode }) {
     const savedMode = localStorage.getItem('tt_mode') as ThemeMode | null
     const savedAccent = localStorage.getItem('tt_accent') as AccentKey | null
     if (savedMode === 'dark' || savedMode === 'light') setModeState(savedMode)
-    if (savedAccent && savedAccent in colorPresetsKeys) setAccentState(savedAccent)
+    if (savedAccent && savedAccent in colorPresetsKeys)
+      setAccentState(savedAccent)
   }, [])
 
   const setMode = (m: ThemeMode) => {
@@ -42,15 +49,18 @@ export function AppThemeProvider({ children }: { children: ReactNode }) {
 
   return (
     <AppThemeContext.Provider value={{ mode, accent, setMode, setAccent }}>
-      <ThemeProvider theme={buildTheme(mode, accent)}>
-        {children}
-      </ThemeProvider>
+      <ThemeProvider theme={buildTheme(mode, accent)}>{children}</ThemeProvider>
     </AppThemeContext.Provider>
   )
 }
 
 const colorPresetsKeys = new Set<string>([
-  'tomato', 'sakura', 'ocean', 'emerald', 'mustard', 'gruvbox',
+  'tomato',
+  'sakura',
+  'ocean',
+  'emerald',
+  'mustard',
+  'gruvbox'
 ])
 
 export function useAppTheme() {

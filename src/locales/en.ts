@@ -77,7 +77,7 @@ const en = {
     reportTitle: 'Tomatracker — Task Report',
     reportTotal: (n: number) => `Total: ${n} task${n === 1 ? '' : 's'}`,
     deleteLabel: 'Delete task',
-    addLabel: 'Add task',
+    addLabel: 'Add task'
   }
 }
 

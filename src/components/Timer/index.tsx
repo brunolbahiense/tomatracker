@@ -23,7 +23,7 @@ const Timer = ({
   breakTime,
   ariaCountdown,
   toggleTimer,
-  resetTimer,
+  resetTimer
 }: TimerProps) => {
   const locale = useLocale()
   const [phraseIndex, setPhraseIndex] = useState(0)

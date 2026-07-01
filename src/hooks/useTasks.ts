@@ -31,7 +31,7 @@ const useTasks = () => {
     if (!trimmed) return
     setTaskList((prev) => [
       ...prev,
-      { id: crypto.randomUUID(), text: trimmed, done: false, completedAt: null },
+      { id: crypto.randomUUID(), text: trimmed, done: false, completedAt: null }
     ])
   }
 
