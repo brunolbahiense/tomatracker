@@ -10,5 +10,7 @@ declare module 'styled-components' {
     red: string
     lightRed: string
     blue: string
+    darkBg: string
+    darkBgTop: string
   }
 }

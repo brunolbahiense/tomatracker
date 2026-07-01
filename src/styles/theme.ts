@@ -6,7 +6,9 @@ const theme = {
   black: '#000000',
   red: '#D63731',
   lightRed: '#EC443E',
-  blue: '#3B82F6'
+  blue: '#3B82F6',
+  darkBg: '#0e0404',
+  darkBgTop: '#2a0a0a',
 }
 
 export default theme
