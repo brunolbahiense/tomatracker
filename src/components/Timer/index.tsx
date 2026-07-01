@@ -25,7 +25,9 @@ const Timer = () => {
 
   const locale = useLocale()
   const [showSettings, setShowSettings] = useState(false)
+  const [phraseIndex, setPhraseIndex] = useState(0)
   const settingsRef = useRef<HTMLDivElement>(null)
+  const wasRunningRef = useRef(false)
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -36,6 +38,13 @@ const Timer = () => {
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
+
+  useEffect(() => {
+    if (isRunning && !wasRunningRef.current) {
+      setPhraseIndex((prev) => (prev + 1) % locale.timer.motivationalPhrases.length)
+    }
+    wasRunningRef.current = isRunning
+  }, [isRunning, locale.timer.motivationalPhrases.length])
 
   return (
     <S.Wrapper ref={settingsRef}>
@@ -90,16 +99,25 @@ const Timer = () => {
           </S.MuteRow>
         </S.SettingsPanel>
       )}
-      <S.Message aria-live="polite">
-        {displayMessage && <div>{locale.timer.breakMessage}</div>}
-      </S.Message>
+      <S.PhaseLabel aria-live="polite">
+        {displayMessage ? locale.timer.breakLabel : locale.timer.workLabel}
+      </S.PhaseLabel>
       <S.Title aria-label={ariaCountdown}>{Display}</S.Title>
+      <S.Divider />
       <S.Controls>
-        <S.ControlButton onClick={toggleTimer}>
+        <S.ControlButton $primary onClick={toggleTimer}>
           {isRunning ? locale.timer.pause : locale.timer.play}
         </S.ControlButton>
         <S.ControlButton onClick={resetTimer}>{locale.timer.reset}</S.ControlButton>
       </S.Controls>
+      <S.TimeInfo>
+        {locale.timer.workLabel}: <span>{workTime} min</span>
+        {' · '}
+        {locale.timer.breakLabel}: <span>{breakTime} min</span>
+      </S.TimeInfo>
+      <S.MotivationalText>
+        {locale.timer.motivationalPhrases[phraseIndex]}
+      </S.MotivationalText>
     </S.Wrapper>
   )
 }
